@@ -1,0 +1,29 @@
+.vertical-align-section {
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+#passwordForm{
+  background: #00675b;
+  width: 30em;
+  padding: 1em 2em 1em 2em;
+  text-align: center;
+}
+
+body{
+  background: #52c7b8;
+}
+
+label{
+  color: white;
+  font-weight: bold;
+}
+
+.btn{
+  color: black;
+}
+
+pre{
+  background-color: whitesmoke;
+}
