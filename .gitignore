@@ -1,2 +1,5 @@
 #ignore vagrant files
 .vagrant/
+
+# ignore jetbrains files :
+.idea/
