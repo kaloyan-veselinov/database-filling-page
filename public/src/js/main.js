@@ -50,12 +50,19 @@ $(document).ready(function() {
 
   function eventSubmit(e) {
     e.preventDefault();
+    date = new Date().getTime();
+    locale = navigator.language;
+    browser = navigator.appName;
     entries.push({
       "keyUpEvents": keyUpEvents,
-      "keyDownEvents": keyDownEvents
+      "keyDownEvents": keyDownEvents,
+      "date" : date,
+      "locale" : locale,
+      "browser" : browser,
     });
     if (nbPasswordEntriesLeft > 1) {
       reset();
+
       nbPasswordEntriesLeft--;
       setPasswordToEnterLabel();
     } else {
