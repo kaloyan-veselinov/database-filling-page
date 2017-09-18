@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
   var passwordField = document.getElementById("passwordField");
   var form = document.getElementById("form");
@@ -27,33 +27,34 @@ $(document).ready(function(){
     - 145 : "arret defil"
     - 19 : pause
    */
-  const forbiddenKeys = [8,46,37,38,39,40,91,112,113,114,115,
-    116,117,118,119,120,121,122,123,45,35,36,33,34,42,145,19];
+  const forbiddenKeys = [8, 46, 37, 38, 39, 40, 91, 112, 113, 114, 115,
+    116, 117, 118, 119, 120, 121, 122, 123, 45, 35, 36, 33, 34, 42, 145, 19
+  ];
 
-  passwordField.onkeydown = function(e){
+  passwordField.onkeydown = function(e) {
     keyDownEvents.push(new Key(e));
   };
 
   passwordField.onkeyup = function(e) {
     // if the key is forbidden, reset the try.
-      if (forbiddenKeys.indexOf(e.keyCode.valueOf()) != -1) {
-          reset();
-      } else {
-       keyUpEvents.push(new Key(e));
-      }
+    if (forbiddenKeys.indexOf(e.keyCode.valueOf()) != -1) {
+      reset();
+    } else {
+      keyUpEvents.push(new Key(e));
+    }
   };
 
-  function setPasswordToEnterLabel(){
+  function setPasswordToEnterLabel() {
     $("#welcomeMessage").text("Please enter this password " + nbPasswordEntriesLeft + " times:");
   }
 
-  function eventSubmit(e){
+  function eventSubmit(e) {
     e.preventDefault();
     entries.push({
       "keyUpEvents": keyUpEvents,
       "keyDownEvents": keyDownEvents
     });
-    if (nbPasswordEntriesLeft>1) {
+    if (nbPasswordEntriesLeft > 1) {
       reset();
       nbPasswordEntriesLeft--;
       setPasswordToEnterLabel();
@@ -62,15 +63,30 @@ $(document).ready(function(){
     }
   }
 
-  function submit(){
-    $.post("/src/php/dataReceiver.php", entries, function(data, status){
-      alert("Status: " + status);
-    });
+  function submit() {
+    console.log(entries);
+    $.post("/src/php/dataReceiver.php",
+      { data: entries },
+      function(data, status) {
+        alert(" Status: " + status);
+      }
+    );
+    /*$.ajax({
+      method: 'post',
+      dataType: 'json',
+      url: '/src/php/dataReceiver.php',
+      data: {
+        "entryData": entries
+      },
+      success: function() {
+        alert("Success");
+      }
+    });*/
   }
 
   form.addEventListener("submit", eventSubmit, false);
 
-  function Key(e){
+  function Key(e) {
     this.key = e.key;
     this.location = e.location;
     this.ctrlKey = e.ctrlKey;
@@ -80,7 +96,7 @@ $(document).ready(function(){
   }
 
   // Resets the lists of events et empties passwordField
-  function reset(){
+  function reset() {
     keyDownEvents = new Array();
     keyUpEvents = new Array();
     passwordField.value = '';
