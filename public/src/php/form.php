@@ -2,10 +2,10 @@
 
   <div class="vertical-align-section img-thumbnail" id="passwordForm">
 
-    <form id="form">
+    <form id="form" method="post">
 
       <div class="form-group">
-        <label>Please enter this password 5 times:</label>
+        <label id="welcomeMessage"></label>
         <pre>LoremIpsumPass</pre>
       </div>
 

@@ -1,10 +1,15 @@
 $(document).ready(function(){
 
-  passwordField = document.getElementById("passwordField");
-  form = document.getElementById("form");
+  var passwordField = document.getElementById("passwordField");
+  var form = document.getElementById("form");
+
+  var nbPasswordEntriesLeft = 5;
+
+  setPasswordToEnterLabel();
 
   var keyDownEvents = new Array();
   var keyUpEvents = new Array();
+  var entries = new Array();
 
   /*
   List of forbidden keys :
@@ -30,7 +35,7 @@ $(document).ready(function(){
   };
 
   passwordField.onkeyup = function(e) {
-    // if the key is forbidden, reset the try. 
+    // if the key is forbidden, reset the try.
       if (forbiddenKeys.indexOf(e.keyCode.valueOf()) != -1) {
           reset();
       } else {
@@ -38,16 +43,35 @@ $(document).ready(function(){
       }
   };
 
+  function setPasswordToEnterLabel(){
+    $("#welcomeMessage").text("Please enter this password " + nbPasswordEntriesLeft + " times:");
+  }
+
   function eventSubmit(e){
     e.preventDefault();
-    alert("Submit");
+    entries.push({
+      "keyUpEvents": keyUpEvents,
+      "keyDownEvents": keyDownEvents
+    });
+    if (nbPasswordEntriesLeft>1) {
+      reset();
+      nbPasswordEntriesLeft--;
+      setPasswordToEnterLabel();
+    } else {
+      submit();
+    }
+  }
+
+  function submit(){
+    $.post("/src/php/dataReceiver.php", entries, function(data, status){
+      alert("Status: " + status);
+    });
   }
 
   form.addEventListener("submit", eventSubmit, false);
 
   function Key(e){
     this.key = e.key;
-    console.log(e.keyCode);
     this.location = e.location;
     this.ctrlKey = e.ctrlKey;
     this.altKey = e.altKey;
