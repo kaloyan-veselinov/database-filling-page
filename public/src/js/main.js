@@ -78,17 +78,6 @@ $(document).ready(function() {
         alert(" Status: " + status);
       }
     );
-    /*$.ajax({
-      method: 'post',
-      dataType: 'json',
-      url: '/src/php/dataReceiver.php',
-      data: {
-        "entryData": entries
-      },
-      success: function() {
-        alert("Success");
-      }
-    });*/
   }
 
   form.addEventListener("submit", eventSubmit, false);
