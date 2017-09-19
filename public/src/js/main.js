@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   var passwordField = document.getElementById("passwordField");
+  var usernameField = document.getElementById("usernameField");
   var form = document.getElementById("form");
 
   var nbPasswordEntriesLeft = 5;
@@ -10,6 +11,8 @@ $(document).ready(function() {
   var keyDownEvents = new Array();
   var keyUpEvents = new Array();
   var entries = new Array();
+
+  var enterKeyTriggered = false;
 
   /*
   List of forbidden keys :
@@ -27,22 +30,36 @@ $(document).ready(function() {
     - 145 : "arret defil"
     - 19 : pause
    */
-  const forbiddenKeys = [8, 46, 37, 38, 39, 40, 91, 112, 113, 114, 115,
+  const FORBIDDEN_KEYS = [8, 46, 37, 38, 39, 40, 91, 112, 113, 114, 115,
     116, 117, 118, 119, 120, 121, 122, 123, 45, 35, 36, 33, 34, 42, 145, 19
   ];
 
   passwordField.onkeydown = function(e) {
-    keyDownEvents.push(new Key(e));
+    // escapes enter key
+    if (e.keyCode != 13) {
+        keyDownEvents.push(new Key(e));
+    }else{
+      enterKeyTriggered = true;
+    }
   };
 
   passwordField.onkeyup = function(e) {
-    // if the key is forbidden, reset the try.
-    if (forbiddenKeys.indexOf(e.keyCode.valueOf()) != -1) {
-      reset();
-    } else {
-      keyUpEvents.push(new Key(e));
+    if (e.keyCode != 13) {  // escapes enter key
+        // if the key is forbidden, reset the try.
+        if (FORBIDDEN_KEYS.indexOf(e.keyCode.valueOf()) != -1) {
+            reset();
+        } else {
+            keyUpEvents.push(new Key(e));
+        }
     }
   };
+
+  // detects if submit is done by pressing the enter key in the username field
+  usernameField.onkeydown = function (e) {
+      if (e.keyCode == 13){
+        enterKeyTriggered = true;
+      }
+  }
 
   function setPasswordToEnterLabel() {
     $("#welcomeMessage").text("Please enter this password " + nbPasswordEntriesLeft + " times:");
@@ -50,15 +67,17 @@ $(document).ready(function() {
 
   function eventSubmit(e) {
     e.preventDefault();
-    date = new Date().getTime();
-    locale = navigator.language;
-    browser = navigator.appName;
+    var submitMethod = getSubmitMethod();
+    var date = new Date().getTime();
+    var locale = navigator.language;
+    var browser = navigator.appName;
     entries.push({
       "keyUpEvents": keyUpEvents,
       "keyDownEvents": keyDownEvents,
       "date" : date,
       "locale" : locale,
       "browser" : browser,
+      "submitMethod" : submitMethod,
     });
     if (nbPasswordEntriesLeft > 1) {
       reset();
@@ -96,6 +115,14 @@ $(document).ready(function() {
     keyDownEvents = new Array();
     keyUpEvents = new Array();
     passwordField.value = '';
+    enterKeyTriggered = false;
   }
 
+  function getSubmitMethod(){
+    if (enterKeyTriggered){
+      return 'enter_key';
+    }else{
+      return 'click';
+    }
+  }
 });
