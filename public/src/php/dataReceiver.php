@@ -1,5 +1,7 @@
 <?php
 
+  include 'databaseConnector.php';
+
   $entryData = $_POST['data'];
 
   foreach ($entryData as $entry) {
@@ -7,17 +9,22 @@
   }
 
   function processEntry($entry){
-    processKeyEvents($entry['keyUpEvents']);
-    processKeyEvents($entry['keyDownEvents']);
+    $entryId = addEntryToDatabase($entry);
+    processKeyEvents($entryId, $entry['keyUpEvents']);
+    processKeyEvents($entryId, $entry['keyDownEvents']);
   }
 
-  function processKeyEvents($keyEvents){
+  function processKeyUpEvents($entryId, $keyEvents){
+    processKeyEvents($entryId, "keyup", $keyEvents);
+  }
+
+  function processKeyEvents($entryId, $entryEventType, $keyEvents){
     foreach ($keyEvents as $key) {
-      processKey($key);
+      processKey($entryId, $entryEventType, $key);
     }
   }
 
-  function processKey($key){
+  function processKey($entryId, $entryEventType, $key){
     echo "\n";
     foreach ($key as $property => $value) {
       echo "$property => $value \n";
