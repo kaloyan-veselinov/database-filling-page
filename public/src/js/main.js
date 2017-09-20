@@ -71,12 +71,16 @@ $(document).ready(function() {
     var date = new Date().getTime();
     var locale = navigator.language;
     var browser = navigator.appName;
+    var platform = navigator.platform;
     entries.push({
+      "password": passwordField.val(),
+      "username": usernameField.val(),
       "keyUpEvents": keyUpEvents,
       "keyDownEvents": keyDownEvents,
       "date" : date,
       "locale" : locale,
       "browser" : browser,
+      "platform": platform,
       "submitMethod" : submitMethod,
     });
     if (nbPasswordEntriesLeft > 1) {
