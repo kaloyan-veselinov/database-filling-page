@@ -2,13 +2,13 @@ use scotchbox;
 
 CREATE TABLE IF NOT EXISTS passwords
 (
-	password VARCHAR(24),
+    password VARCHAR(24),
     PRIMARY KEY (password)
 );
 
 CREATE TABLE IF NOT EXISTS entries
 (
-	entryId INT AUTO_INCREMENT,
+    entryId INT AUTO_INCREMENT,
     password VARCHAR(24),
     username VARCHAR(45) NOT NULL,
     date DATE,
@@ -20,30 +20,17 @@ CREATE TABLE IF NOT EXISTS entries
     FOREIGN KEY (password) REFERENCES passwords(password)
 );
 
-CREATE TABLE IF NOT EXISTS keyDownEvents
+CREATE TABLE IF NOT EXISTS keyEvents
 (
-	keyId INT,
-	entryId INT,
+    keyId INT,
+    entryId INT,
     keyValue VARCHAR(10),
     location INT,
     ctrlKey BOOLEAN,
     altKey BOOLEAN,
     shiftKey BOOLEAN,
-    time TIMESTAMP,
-    PRIMARY KEY (keyId),
-    FOREIGN KEY (entryId) REFERENCES entries (entryId)
-);
-
-CREATE TABLE IF NOT EXISTS keyUpEvents
-(
-	keyId INT,
-	entryId INT,
-    keyValue VARCHAR(10),
-    location INT,
-    ctrlKey BOOLEAN,
-    altKey BOOLEAN,
-    shiftKey BOOLEAN,
-    time TIMESTAMP,
+    timeDown TIMESTAMP,
+    timeUp TIMESTAMP,
     PRIMARY KEY (keyId),
     FOREIGN KEY (entryId) REFERENCES entries (entryId)
 );
