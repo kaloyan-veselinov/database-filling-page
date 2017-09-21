@@ -73,8 +73,8 @@ $(document).ready(function() {
     var browser = navigator.appName;
     var platform = navigator.platform;
     entries.push({
-      "password": passwordField.val(),
-      "username": usernameField.val(),
+      "password": $("#passwordField").val(),
+      "username": $("#usernameField").val(),
       "keyUpEvents": keyUpEvents,
       "keyDownEvents": keyDownEvents,
       "date" : date,
