@@ -1,26 +1,26 @@
 <?php
-
+/*
   //database connection parameters
   define(SERVERNAME, "localhost");
-  define(USERNAME, "username");
-  define(PASSWORD, "password");
-
+  define(USERNAME, "root");
+  define(PASSWORD, "");
+*/
   //initialising database connection
-  $connection = new mysqli(SERVERNAME, USERNAME, PASSWORD);
+  $connection = new mysqli("localhost", "user","password",'scotchbox');
   if ($connection->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $connection->connect_error);
   }
 
-  function closeDatabaseConnection(){
+  function closeDatabaseConnection($connection){
     mysqli_close($connection);
   }
-
+/*
   function addEntryToDatabase($entry){
 
     //preparing statement
     $query = 'INSERT INTO entry (password, username, date, locale, browser, platform, submitMethod)
               VALUES (?,?,?,?,?,?)';
-    $preparedStatement = $conn->prepare($query);
+    $preparedStatement = $connection->prepare($query);
     $preparedStatement->bind_param("ssissss", $password, $username, $date, $locale, $browser, $platform,
                                     $submitMethod, $username);
 
@@ -48,4 +48,18 @@
       return $res->fetch_assoc()[0];
     }
     else return -1;
+  }
+*/
+  function getDisplayedPassword($connection){
+      $query = 'SELECT password FROM passwords';
+      if(      $res = $connection->query($query)){
+        $numRows = $res->num_rows;
+        $id = rand(0,$numRows-1);
+        $res->data_seek($id);
+        $values =  $res->fetch_assoc();
+
+          return $values["password"];
+      }else{
+          return $connection->error;
+      }
   }

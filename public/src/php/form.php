@@ -1,3 +1,6 @@
+<?php include "src/php/databaseConnector.php";
+ $displayedPassword =  getDisplayedPassword($connection);?>
+
 <center>
 
   <div class="vertical-align-section img-thumbnail" id="passwordForm">
@@ -6,7 +9,7 @@
 
       <div class="form-group">
         <label id="welcomeMessage"></label>
-        <pre>LoremIpsumPass</pre>
+        <pre id="displayedPassword"><?php echo $displayedPassword ?></pre>
       </div>
 
       <div class="form-group">

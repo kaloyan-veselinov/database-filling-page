@@ -35,6 +35,10 @@ CREATE TABLE IF NOT EXISTS keyEvents
     FOREIGN KEY (entryId) REFERENCES entries (entryId)
 );
 
+INSERT INTO passwords (password) VALUES ('password1');
+INSERT INTO passwords (password) VALUES ('password2');
+INSERT INTO passwords (password) VALUES ('password3');
+
 
     
     
