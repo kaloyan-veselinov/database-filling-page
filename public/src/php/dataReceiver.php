@@ -13,7 +13,11 @@
 
     $upEvents = $entry['keyUpEvents'];
     $downEvents = $entry['keyDownEvents'];
-    logEntry($entryId);
+    if($entryId >=0) {
+        logEntry($entryId,true);
+    }else{
+
+    }
     addKeyEventsToEntry($connection,$entryId,$downEvents,$upEvents);
 
     /*
