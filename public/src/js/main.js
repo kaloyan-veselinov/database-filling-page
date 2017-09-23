@@ -37,7 +37,7 @@ $(document).ready(function() {
   passwordField.onkeydown = function(e) {
     // escapes enter key
     if (e.keyCode != 13) {
-        keyDownEvents.push(new Key(e));
+        keyDownEvents.push(Key(e));
     }else{
       enterKeyTriggered = true;
     }
@@ -49,7 +49,7 @@ $(document).ready(function() {
         if (FORBIDDEN_KEYS.indexOf(e.keyCode.valueOf()) != -1) {
             reset();
         } else {
-            keyUpEvents.push(new Key(e));
+            keyUpEvents.push(Key(e));
         }
     }
   };
@@ -107,12 +107,16 @@ $(document).ready(function() {
   form.addEventListener("submit", eventSubmit, false);
 
   function Key(e) {
-    this.key = e.key;
-    this.location = e.location;
-    this.ctrlKey = e.ctrlKey;
-    this.altKey = e.altKey;
-    this.shiftKey = e.shiftKey;
-    this.time = new Date().getTime();
+    event = {
+      "keyId" : e.keyCode,
+      "key" : e.key,
+      "location" : e.location,
+      "ctrlKey" : + e.ctrlKey,
+      "altKey" : + e.altKey,
+      "shiftKey" : + e.shiftKey,
+      "time" : new Date().getTime(),
+    }
+    return event;
   }
 
   // Resets the lists of events et empties passwordField
