@@ -48,6 +48,27 @@
     }
   }
 
+  function addKeyEventsToEntry($connection, $entry,$downEvents,$upEvents){
+
+      for($i = 0; $i<sizeof($downEvents);$i++){
+          $query ="INSERT INTO keyEvents (keyId,entryId,keyValue,location,ctrlKey,
+              altKey,shiftKey,timeDown,timeUp) VALUES (?,?,?,?,?,?,?,?,?);";
+          if($preparedStatement = $connection->prepare($query)){
+              $preparedStatement->bind_param("iissiiidd",$downEvents[$i]["keyId"],$entry
+                  ,$downEvents[$i]["key"],$downEvents[$i]["location"],$downEvents[$i]["ctrlKey"]
+                  ,$downEvents[$i]["altKey"],$downEvents[$i]["shiftKey"],$downEvents[$i]["time"],$upEvents[$i]["time"]);
+              $preparedStatement->execute();
+              if($connection->affected_rows > 0) {
+                  echo "$connection->affected_rows\n";
+              }else{
+                  echo htmlspecialchars($connection->error);
+              }
+          }else{
+              //echo "error : $connection->error "|" $preparedStatement->error \n";
+          }
+      }
+  }
+
   // gets last entry index for the specified user and password
   function getEntryId($connection,$username,$password){
     $query = 'SELECT MAX(entryId) FROM entries WHERE username = ? AND password= ?';

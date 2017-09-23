@@ -10,10 +10,17 @@
 
   function processEntry($entry,$connection){
     $entryId = addEntryToDatabase($entry,$connection);
+
+    $upEvents = $entry['keyUpEvents'];
+    $downEvents = $entry['keyDownEvents'];
     logEntry($entryId);
-    //processKeyEvents($entryId, $entry['keyUpEvents']);
-    //processKeyEvents($entryId, $entry['keyDownEvents']);
-  }
+    addKeyEventsToEntry($connection,$entryId,$downEvents,$upEvents);
+
+    /*
+    processKeyEvents($entryId, $entry['keyUpEvents']);
+    processKeyEvents($entryId, $entry['keyDownEvents']);
+  */
+    }
 /*
   function processKeyUpEvents($entryId, $keyEvents){
     processKeyEvents($entryId, "keyup", $keyEvents);
@@ -31,4 +38,6 @@
       echo "$property => $value \n";
     }
   }
+
 */
+
