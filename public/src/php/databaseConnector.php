@@ -87,7 +87,10 @@
         $preparedStatement->close();
         return $values["MAX(entryId)"];
     }
-    else return -1;
+    else {
+        logError(htmlspecialchars($connection->error));
+        return -1;
+    }
   }
 
 

@@ -9,7 +9,7 @@ function logEntry($entryIndex,$success){
         $log = "[$date] - logged entry : $entryIndex \n";
         fwrite($handle, $log);
     }else{
-        $log = "[$date] - Failed to add entry : $entryIndex database_error.log may have more info\n";
+        $log = "[$date] - Failed to add entry :  database_error.log may have more info\n";
         fwrite($handle, $log);
     }
     fclose($handle);
