@@ -1,4 +1,8 @@
+CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON scotchbox.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+
 use scotchbox;
+
 
 CREATE TABLE IF NOT EXISTS passwords
 (
