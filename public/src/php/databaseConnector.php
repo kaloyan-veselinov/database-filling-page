@@ -8,7 +8,7 @@
   //initialising database connection
   $connection = new mysqli("localhost", "user","password",'scotchbox');
   if ($connection->connect_error) {
-    die("Connection failed: " . $connection->connect_error);
+    die(logError("Connection failed: " . $connection->connect_error));
   }
 
     // closes the connection
@@ -39,11 +39,15 @@
 
 
         //executing query
-        $preparedStatement->execute();
+        if(!$preparedStatement->execute()){
+            logError($connection->error);
+
+        }
         $preparedStatement->close();
 
         return getEntryId($connection, $username, $password);
     }else{
+        logError($connection->error);
         return -1;
     }
   }
@@ -61,10 +65,12 @@
               if($connection->affected_rows > 0) {
                   echo "$connection->affected_rows\n";
               }else{
-                  echo htmlspecialchars($connection->error);
+                  logError(htmlspecialchars($connection->error));
               }
           }else{
-              //echo "error : $connection->error "|" $preparedStatement->error \n";
+              logError(htmlspecialchars($connection->error));
+              logError(htmlspecialchars($preparedStatement->error));
+
           }
       }
   }
@@ -81,7 +87,10 @@
         $preparedStatement->close();
         return $values["MAX(entryId)"];
     }
-    else return -1;
+    else {
+        logError(htmlspecialchars($connection->error));
+        return -1;
+    }
   }
 
 
@@ -96,6 +105,7 @@
 
           return $values["password"];
       }else{
+          logError(htmlspecialchars($connection->error));
           return $connection->error;
       }
   }
