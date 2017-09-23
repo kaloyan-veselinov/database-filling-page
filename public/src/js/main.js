@@ -69,6 +69,7 @@ $(document).ready(function() {
     e.preventDefault();
     var submitMethod = getSubmitMethod();
     var date = new Date().getTime();
+    console.log(date);
     var locale = navigator.language;
     var browser = navigator.appName;
     var platform = navigator.platform;

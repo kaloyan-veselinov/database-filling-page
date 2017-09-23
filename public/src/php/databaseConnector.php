@@ -11,45 +11,60 @@
     die("Connection failed: " . $connection->connect_error);
   }
 
+    // closes the connection
   function closeDatabaseConnection($connection){
     mysqli_close($connection);
   }
-/*
-  function addEntryToDatabase($entry){
+
+
+    // adds an entry to the database
+  function addEntryToDatabase($entry,$connection){
+
+      //setting parameters
+      $password = $entry['password'];
+      $username = htmlspecialchars($entry['username']);
+      // Converting javascript time to unix time
+      $date = (intdiv($entry['date'],1000));
+      $locale = $entry['locale'];
+      $browser = $entry['browser'];
+      $platform = $entry['platform'];
+      $submitMethod = $entry['submitMethod'];
 
     //preparing statement
-    $query = 'INSERT INTO entry (password, username, date, locale, browser, platform, submitMethod)
-              VALUES (?,?,?,?,?,?)';
-    $preparedStatement = $connection->prepare($query);
-    $preparedStatement->bind_param("ssissss", $password, $username, $date, $locale, $browser, $platform,
-                                    $submitMethod, $username);
+    $query = 'INSERT INTO entries (password, username, date, locale, browser, platform, submitMethod)
+              VALUES (?,?,FROM_UNIXTIME(?),?,?,?,?)';
+    if($preparedStatement = $connection->prepare($query)){
+        $preparedStatement->bind_param("ssissss",$password, $username, $date, $locale, $browser, $platform,
+                                    $submitMethod);
 
-    //setting parameters
-    $password = $entry['password'];
-    $username = htmlspecialchars($entry['username']);
-    $date = $entry['date'];
-    $locale = $entry['locale'];
-    $browser = $entry['browser'];
-    $platform = $entry['platform'];
-    $submitMethod = $entry['submitMethod'];
 
-    //executing query
-    $preparedStatement->execute();
-    
-    return getEntryId($username);
+        //executing query
+        $preparedStatement->execute();
+        $preparedStatement->close();
+
+        return getEntryId($connection, $username, $password);
+    }else{
+        return -1;
+    }
   }
 
-  function getEntryId($username){
-    $query = 'SELECT MAX(id) FROM entry WHERE username = ?';
-    $preparedStatement = $conn->prepare($query);
-    $preparedStatement->bind_param("s", $username);
-    $res = $preparedStatement->execute();
-    if ($res->num_rows > 0) {
-      return $res->fetch_assoc()[0];
+  // gets last entry index for the specified user and password
+  function getEntryId($connection,$username,$password){
+    $query = 'SELECT MAX(entryId) FROM entries WHERE username = ? AND password= ?';
+    $preparedStatement = $connection->prepare($query);
+    $preparedStatement->bind_param("ss",$username,$password );
+    if($preparedStatement->execute()){
+        $res = $preparedStatement->get_result();
+        $res->data_seek(0);
+        $values =  $res->fetch_assoc();
+        $preparedStatement->close();
+        return $values["MAX(entryId)"];
     }
     else return -1;
   }
-*/
+
+
+  // gets the password to display from database
   function getDisplayedPassword($connection){
       $query = 'SELECT password FROM passwords';
       if(      $res = $connection->query($query)){

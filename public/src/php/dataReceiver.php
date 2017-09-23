@@ -1,15 +1,15 @@
 <?php
+    include "databaseConnector.php";
+    if(isset($_POST['data'])) {
+        $entryData = $_POST['data'];
+        foreach ($entryData as $entry) {
+            processEntry($entry,$connection);
+        }
+    }
 
-  include 'databaseConnector.php';
-
-  $entryData = $_POST['data'];
-
-  foreach ($entryData as $entry) {
-    processEntry($entry);
-  }
-
-  function processEntry($entry){
-    $entryId = addEntryToDatabase($entry);
+  function processEntry($entry,$connection){
+    $entryId = addEntryToDatabase($entry,$connection);
+    echo $entryId;
     processKeyEvents($entryId, $entry['keyUpEvents']);
     processKeyEvents($entryId, $entry['keyDownEvents']);
   }

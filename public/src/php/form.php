@@ -1,4 +1,4 @@
-<?php include "src/php/databaseConnector.php";
+<?php include "src/php/dataReceiver.php";
  $displayedPassword =  getDisplayedPassword($connection);?>
 
 <center>
