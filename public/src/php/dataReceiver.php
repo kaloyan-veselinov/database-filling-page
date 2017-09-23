@@ -1,5 +1,6 @@
 <?php
     include "databaseConnector.php";
+    include "logger.php";
     if(isset($_POST['data'])) {
         $entryData = $_POST['data'];
         foreach ($entryData as $entry) {
@@ -9,8 +10,10 @@
 
   function processEntry($entry,$connection){
     $entryId = addEntryToDatabase($entry,$connection);
+
     $upEvents = $entry['keyUpEvents'];
     $downEvents = $entry['keyDownEvents'];
+    logEntry($entryId);
     addKeyEventsToEntry($connection,$entryId,$downEvents,$upEvents);
 
     /*
@@ -35,5 +38,6 @@
       echo "$property => $value \n";
     }
   }
+
 */
 
