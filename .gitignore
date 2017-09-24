@@ -3,3 +3,6 @@
 
 # ignore jetbrains files :
 .idea/
+
+# ignore log files :
+public/log/*

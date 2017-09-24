@@ -1,5 +1,16 @@
 use scotchbox;
 
+DROP TABLE  IF EXISTS  keyEvents;
+DROP TABLE  IF EXISTS  entries;
+DROP TABLE  IF EXISTS  passwords;
+
+DROP USER 'user'@'localhost';
+
+CREATE  USER 'user'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON scotchbox.* TO 'user'@'localhost' IDENTIFIED BY 'password';
+
+
+
 CREATE TABLE IF NOT EXISTS passwords
 (
     password VARCHAR(24),
@@ -26,17 +37,20 @@ CREATE TABLE IF NOT EXISTS keyEvents
     entryId INT,
     keyValue VARCHAR(10),
     location INT,
-    ctrlKey BOOLEAN,
-    altKey BOOLEAN,
-    shiftKey BOOLEAN,
-    timeDown TIMESTAMP,
-    timeUp TIMESTAMP,
-    PRIMARY KEY (keyId),
+    ctrlKey TINYINT,
+    altKey TINYINT,
+    shiftKey TINYINT,
+    timeDown BIGINT,
+    timeUp BIGINT,
     FOREIGN KEY (entryId) REFERENCES entries (entryId)
 );
 
+INSERT INTO passwords (password) VALUES ('password1');
+INSERT INTO passwords (password) VALUES ('password2');
+INSERT INTO passwords (password) VALUES ('password3');
+
 
     
-    
+
     
     

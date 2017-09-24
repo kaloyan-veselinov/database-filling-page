@@ -1,19 +1,32 @@
 <?php
+    include "databaseConnector.php";
+    include "logger.php";
+    if(isset($_POST['data'])) {
+        $entryData = $_POST['data'];
+        foreach ($entryData as $entry) {
+            processEntry($entry,$connection);
+        }
+    }
 
-  include 'databaseConnector.php';
+  function processEntry($entry,$connection){
+    $entryId = addEntryToDatabase($entry,$connection);
 
-  $entryData = $_POST['data'];
+    $upEvents = $entry['keyUpEvents'];
+    $downEvents = $entry['keyDownEvents'];
+    if($entryId.is_int() && $entryId >=0) {
+        logEntry($entryId,true);
+    }else{
+        logEntry($entryId,false);
 
-  foreach ($entryData as $entry) {
-    processEntry($entry);
-  }
+    }
+    addKeyEventsToEntry($connection,$entryId,$downEvents,$upEvents);
 
-  function processEntry($entry){
-    $entryId = addEntryToDatabase($entry);
+    /*
     processKeyEvents($entryId, $entry['keyUpEvents']);
     processKeyEvents($entryId, $entry['keyDownEvents']);
-  }
-
+  */
+    }
+/*
   function processKeyUpEvents($entryId, $keyEvents){
     processKeyEvents($entryId, "keyup", $keyEvents);
   }
@@ -30,3 +43,6 @@
       echo "$property => $value \n";
     }
   }
+
+*/
+
