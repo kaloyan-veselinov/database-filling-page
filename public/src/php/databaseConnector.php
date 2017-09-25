@@ -1,10 +1,10 @@
 <?php
 
   //database connection parameters
-  define("HOSTNAME", "zeu.host.name");
-  define("USER", "bob");
+  define("HOSTNAME", "hostname.com");
+  define("USER", "user");
   define("PASSWORD", "password");
-  define("DATABASE", "dbName");
+  define("DATABASE", "databaseName");
 
   //initialising database connection
   $connection = new mysqli(HOSTNAME, USER, PASSWORD, DATABASE);
@@ -12,14 +12,14 @@
       die(logError("Connection failed: " . $connection->connect_error));
   }
 
-    // closes the connection
+  // closes the connection
   function closeDatabaseConnection($connection)
   {
       mysqli_close($connection);
   }
 
 
-    // adds an entry to the database
+  // adds an entry to the database
   function addEntryToDatabase($entry, $connection)
   {
 
