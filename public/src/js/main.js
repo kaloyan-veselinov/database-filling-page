@@ -93,6 +93,7 @@ $(document).ready(function() {
         setPasswordToEnterLabel();
       } else {
         submit();
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_self");
       }
     } else {
       alert("Wrong password, please try again!")
