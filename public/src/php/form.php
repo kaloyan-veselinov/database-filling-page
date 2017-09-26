@@ -5,7 +5,7 @@
 
   <div class="vertical-align-section img-thumbnail" id="passwordForm">
 
-    <form id="form" method="post">
+    <form id="form">
 
       <div class="form-group">
         <label id="welcomeMessage"></label>
