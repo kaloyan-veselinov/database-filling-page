@@ -11,6 +11,18 @@
   text-align: center;
 }
 
+.input-validation-true{
+    background: #66c063;
+    transition-delay: 1s;
+}
+
+.input-validation-false{
+
+}
+.input-validation-default{
+
+}
+
 body{
   background: #52c7b8;
 }

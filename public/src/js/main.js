@@ -97,7 +97,6 @@ $(document).ready(function() {
 
         if (nbPasswordEntriesLeft > 1) {
         reset();
-
         nbPasswordEntriesLeft--;
         setPasswordToEnterLabel();
       } else {
