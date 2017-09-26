@@ -1,10 +1,10 @@
 <?php
 
   //database connection parameters
-  define("HOSTNAME", "hostname.com");
+  define("HOSTNAME", "127.0.0.1");
   define("USER", "user");
   define("PASSWORD", "password");
-  define("DATABASE", "databaseName");
+  define("DATABASE", "scotchbox");
 
   //initialising database connection
   $connection = new mysqli(HOSTNAME, USER, PASSWORD, DATABASE);
