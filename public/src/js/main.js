@@ -3,6 +3,7 @@ $(document).ready(function() {
   var passwordField = document.getElementById("passwordField");
   var usernameField = document.getElementById("usernameField");
   var form = document.getElementById("form");
+  var passwordToEnter = document.getElementById("displayedPassword");
 
   var nbPasswordEntriesLeft = 5;
 
@@ -37,28 +38,28 @@ $(document).ready(function() {
   passwordField.onkeydown = function(e) {
     // escapes enter key
     if (e.keyCode != 13) {
-        keyDownEvents.push(Key(e));
-    }else{
+      keyDownEvents.push(Key(e));
+    } else {
       enterKeyTriggered = true;
     }
   };
 
   passwordField.onkeyup = function(e) {
-    if (e.keyCode != 13) {  // escapes enter key
-        // if the key is forbidden, reset the try.
-        if (FORBIDDEN_KEYS.indexOf(e.keyCode.valueOf()) != -1) {
-            reset();
-        } else {
-            keyUpEvents.push(Key(e));
-        }
+    if (e.keyCode != 13) { // escapes enter key
+      // if the key is forbidden, reset the try.
+      if (FORBIDDEN_KEYS.indexOf(e.keyCode.valueOf()) != -1) {
+        reset();
+      } else {
+        keyUpEvents.push(Key(e));
+      }
     }
   };
 
   // detects if submit is done by pressing the enter key in the username field
-  usernameField.onkeydown = function (e) {
-      if (e.keyCode == 13){
-        enterKeyTriggered = true;
-      }
+  usernameField.onkeydown = function(e) {
+    if (e.keyCode == 13) {
+      enterKeyTriggered = true;
+    }
   }
 
   function setPasswordToEnterLabel() {
@@ -67,37 +68,44 @@ $(document).ready(function() {
 
   function eventSubmit(e) {
     e.preventDefault();
-    var submitMethod = getSubmitMethod();
-    var date = new Date().getTime();
-    console.log(date);
-    var locale = navigator.language;
-    var browser = navigator.appName;
-    var platform = navigator.platform;
-    entries.push({
-      "password": $("#passwordField").val(),
-      "username": $("#usernameField").val(),
-      "keyUpEvents": keyUpEvents,
-      "keyDownEvents": keyDownEvents,
-      "date" : date,
-      "locale" : locale,
-      "browser" : browser,
-      "platform": platform,
-      "submitMethod" : submitMethod,
-    });
-    if (nbPasswordEntriesLeft > 1) {
-      reset();
+    if ($("#passwordField").val() == $("#displayedPassword").text()) {
+      var submitMethod = getSubmitMethod();
+      var date = new Date().getTime();
+      console.log(date);
+      var locale = navigator.language;
+      var browser = navigator.appName;
+      var platform = navigator.platform;
+      entries.push({
+        "password": $("#passwordField").val(),
+        "username": $("#usernameField").val(),
+        "keyUpEvents": keyUpEvents,
+        "keyDownEvents": keyDownEvents,
+        "date": date,
+        "locale": locale,
+        "browser": browser,
+        "platform": platform,
+        "submitMethod": submitMethod,
+      });
+      if (nbPasswordEntriesLeft > 1) {
+        reset();
 
-      nbPasswordEntriesLeft--;
-      setPasswordToEnterLabel();
+        nbPasswordEntriesLeft--;
+        setPasswordToEnterLabel();
+      } else {
+        submit();
+        window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_self");
+      }
     } else {
-      submit();
+      alert("Wrong password, please try again!")
+      reset();
     }
   }
 
   function submit() {
     console.log(entries);
-    $.post("/src/php/dataReceiver.php",
-      { data: entries },
+    $.post("/src/php/dataReceiver.php", {
+        data: entries
+      },
       function(data, status) {
         alert(" Status: " + status);
       }
@@ -108,13 +116,13 @@ $(document).ready(function() {
 
   function Key(e) {
     event = {
-      "keyId" : e.keyCode,
-      "key" : e.key,
-      "location" : e.location,
-      "ctrlKey" : + e.ctrlKey,
-      "altKey" : + e.altKey,
-      "shiftKey" : + e.shiftKey,
-      "time" : new Date().getTime(),
+      "keyId": e.keyCode,
+      "key": e.key,
+      "location": e.location,
+      "ctrlKey": +e.ctrlKey,
+      "altKey": +e.altKey,
+      "shiftKey": +e.shiftKey,
+      "time": new Date().getTime(),
     }
     return event;
   }
@@ -127,10 +135,10 @@ $(document).ready(function() {
     enterKeyTriggered = false;
   }
 
-  function getSubmitMethod(){
-    if (enterKeyTriggered){
+  function getSubmitMethod() {
+    if (enterKeyTriggered) {
       return 'enter_key';
-    }else{
+    } else {
       return 'click';
     }
   }
