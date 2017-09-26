@@ -68,6 +68,7 @@ $(document).ready(function() {
 
   function eventSubmit(e) {
     e.preventDefault();
+    // checks if username field is empty
     if ($("#usernameField").val() == ""){
         usernameField.style.backgroundColor = "#ff7e7e";
         reset();
@@ -92,6 +93,7 @@ $(document).ready(function() {
         "submitMethod": submitMethod,
       });
         passwordField.style.backgroundColor = "#a8fda4";
+        usernameField.style.removeProperty("background-color");
 
         if (nbPasswordEntriesLeft > 1) {
         reset();
