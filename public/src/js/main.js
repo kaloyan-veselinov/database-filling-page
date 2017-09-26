@@ -68,7 +68,13 @@ $(document).ready(function() {
 
   function eventSubmit(e) {
     e.preventDefault();
-    if ($("#passwordField").val() == $("#displayedPassword").text()) {
+    // checks if username field is empty
+    if ($("#usernameField").val() == ""){
+        usernameField.style.backgroundColor = "#ff7e7e";
+        reset();
+    }
+    // checks if the right password has been entered
+    else if ($("#passwordField").val() == $("#displayedPassword").text()) {
       var submitMethod = getSubmitMethod();
       var date = new Date().getTime();
       console.log(date);
@@ -86,7 +92,10 @@ $(document).ready(function() {
         "platform": platform,
         "submitMethod": submitMethod,
       });
-      if (nbPasswordEntriesLeft > 1) {
+        passwordField.style.backgroundColor = "#a8fda4";
+        usernameField.style.removeProperty("background-color");
+
+        if (nbPasswordEntriesLeft > 1) {
         reset();
 
         nbPasswordEntriesLeft--;
@@ -96,7 +105,7 @@ $(document).ready(function() {
         window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_self");
       }
     } else {
-      alert("Wrong password, please try again!")
+      passwordField.style.backgroundColor = "#ff7e7e";
       reset();
     }
   }
