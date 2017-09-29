@@ -1,7 +1,7 @@
 <?php
 
   //database connection parameters
-  define("HOSTNAME", "127.0.0.1");
+  define("HOSTNAME", "192.168.33.10");
   define("USER", "user");
   define("PASSWORD", "password");
   define("DATABASE", "scotchbox");
