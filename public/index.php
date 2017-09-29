@@ -5,12 +5,14 @@
 
     <title>GraphPass</title>
 
-    <?php include 'src/php/include.php' ?>
+    <?php include 'src/php/include.php'; include "src/php/lang.php"?>
   </head>
 
   <body>
 
-       <?php  include "src/php/form.php" ?>
+
+
+       <?php include "src/php/navBar.php";  include "src/php/form.php" ?>
 
 
   </body>

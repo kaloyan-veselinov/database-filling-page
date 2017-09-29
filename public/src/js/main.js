@@ -63,7 +63,7 @@ $(document).ready(function() {
   }
 
   function setPasswordToEnterLabel() {
-    $("#welcomeMessage").text("Please enter this password " + nbPasswordEntriesLeft + " times:");
+    $("#passwordCounter").text(nbPasswordEntriesLeft);
   }
 
   function eventSubmit(e) {
