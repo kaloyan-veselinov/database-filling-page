@@ -13,7 +13,7 @@
 
     $upEvents = $entry['keyUpEvents'];
     $downEvents = $entry['keyDownEvents'];
-    if($entryId.is_int() && $entryId >=0) {
+    if(is_int($entryId) && $entryId >=0) {
         logEntry($entryId,true);
     }else{
         logEntry($entryId,false);
