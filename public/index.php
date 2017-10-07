@@ -2,17 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <?php include 'src/php/include.php'; include "src/php/lang.php";include "src/php/homeLang.php"?>
+      <title>Woodpeckey <?=MAIN_TITLE?></title>
 
-    <title>GraphPass</title>
-
-    <?php include 'src/php/include.php'; include "src/php/lang.php"?>
   </head>
+
+  <header>
+      <?php include "src/php/navBar.php";?>
+  </header>
 
   <body>
 
-
-
-       <?php include "src/php/navBar.php";  include "src/php/form.php" ?>
+       <?php include "src/php/home.php" ?>
 
 
   </body>
