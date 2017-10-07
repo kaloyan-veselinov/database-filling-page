@@ -21,9 +21,10 @@ include "navbarLang.php";
               </li>
           </ul>
           <form class="form-inline">
+              <li>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                  Launch demo modal
+                  <?=SUBSCRIBE_NEWS?>
               </button>
 
               <!-- Modal -->
@@ -31,21 +32,34 @@ include "navbarLang.php";
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                              <h5 class="modal-title" id="exampleModalLabel"><?=SUBSCRIBE_TITLE?></h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                               </button>
                           </div>
                           <div class="modal-body">
-                              ...
+                              <form class="vertical-align-section img-thumbnail">
+                                  <div class="form-group">
+                                      <label><?=SUBSCRIBE_EMAIL?></label>
+                                      <input class="form-control" type="email">
+                                  </div>
+                                  <div class="form-group">
+                                      <label><?=SUBSCRIBE_LANG?></label>
+                                      <select class="form-control">
+                                          <option value="english">English</option>
+                                          <option value="french">Français</option>
+                                      </select>
+                                  </div>
+                              </form>
                           </div>
                           <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save changes</button>
+                              <button type="button" class="btn btn-primary"><?=SUBSCRIBE_BTN?></button>
                           </div>
                       </div>
                   </div>
               </div>
+              </li>
+              </ul>
           </form>
       </div>
   </nav>
