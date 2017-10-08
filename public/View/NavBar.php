@@ -11,10 +11,10 @@ require_once 'Model/NavbarLang.php';
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item ">
-                  <a class="nav-link" href="/home" target="_self"><?=HOME_TXT?> <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="home" target="_self"><?=HOME_TXT?> <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="/help"><?=HELP_TXT ?> </a>
+                  <a class="nav-link" href="help"><?=HELP_TXT ?> </a>
               </li>
               <li class="nav-item">
                   <a class="nav-link " href="#"><?=CONTACT_TXT ?></a>

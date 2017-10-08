@@ -1,4 +1,4 @@
-<script type="text/javascript" src="/Javascript/home.js"></script>
+<script type="text/javascript" src="Javascript/home.js"></script>
 
 <div id="fullpage">
 
