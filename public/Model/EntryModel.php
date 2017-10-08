@@ -61,7 +61,10 @@ class EntryModel extends Model{
     }
     public function getDisplayedPassword(){
         $query = 'SELECT password FROM passwords';
-        $values = $this->executeRequest($query)->fetch_assoc();
-        return $values["password"];
+        $values = $this->executeRequest($query);
+        $numRows = $values->num_rows;
+        $id = rand(0, $numRows-1);
+        $values->data_seek($id);
+        return $values->fetch_assoc()["password"];
     }
 }
