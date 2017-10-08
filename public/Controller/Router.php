@@ -34,6 +34,8 @@ class Router {
                     if(sizeof($path) == 3) {
                         $this->home_controller->displayHomePage();
                     }
+                }else if($path[2] == ""){
+                    $this->home_controller->displayHomePage();
                 }
             }else {
                 $this->home_controller->displayHomePage();
