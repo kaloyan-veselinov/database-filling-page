@@ -4,8 +4,9 @@ $(document).ready(function() {
   var usernameField = document.getElementById("usernameField");
   var form = document.getElementById("form");
   var passwordToEnter = document.getElementById("displayedPassword");
-
+  var passwordCounter = document.getElementById("passwordCounter");
   var nbPasswordEntriesLeft = 5;
+  
   setPasswordToEnterLabel();
 
   var keyDownEvents = new Array();
@@ -111,8 +112,8 @@ $(document).ready(function() {
   function submit() {
     console.log(entries);
     $.post("index.php", {
-        action: "submit",
-        data: entries
+        data: entries,
+        action : "submit"
       },
       function(data, status) {
         alert(" Status: " + status);
