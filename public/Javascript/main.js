@@ -6,7 +6,6 @@ $(document).ready(function() {
   var passwordToEnter = document.getElementById("displayedPassword");
 
   var nbPasswordEntriesLeft = 5;
-
   setPasswordToEnterLabel();
 
   var keyDownEvents = new Array();
@@ -111,7 +110,8 @@ $(document).ready(function() {
 
   function submit() {
     console.log(entries);
-    $.post("/src/php/DataReceiverController.php", {
+    $.post("index.php", {
+        action: "submit",
         data: entries
       },
       function(data, status) {
