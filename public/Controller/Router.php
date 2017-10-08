@@ -32,7 +32,7 @@ class Router {
                 $this->home_controller->displayHomePage();
 
             }else if($path[sizeof($path)-1] == ""){
-                if($path[sizeof($path)-2] ==$path[0] ){
+                if($path[sizeof($path)-2] ==$path[1] ){
                     $this->home_controller->displayHomePage();
                 }else{
                     echo $this->uri;
