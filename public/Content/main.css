@@ -1,0 +1,78 @@
+.vertical-align-section {
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+#passwordForm{
+  background: #00675b;
+  width: 30em;
+  padding: 1em 2em 1em 2em;
+  text-align: center;
+}
+
+.input-validation-true{
+    background: #66c063;
+    transition-delay: 1s;
+}
+
+.input-validation-false{
+
+}
+.input-validation-default{
+
+}
+
+body{
+  background-image: url("/res/img/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #f1f1f1;
+}
+
+label{
+  color: black;
+  font-weight: bold;
+}
+
+.btn{
+  color: black;
+}
+
+pre{
+  background-color: whitesmoke;
+}
+
+.modal{
+    color : black;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #e45d56;
+    border-color: #e45d56;
+}
+
+.btn-primary:hover {
+    color: white;
+    background-color: #da2920;
+    border-color: #da2920;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+    box-shadow: 0 0 0 3px #da2920;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    background-color: #e45d56;
+    border-color: #e45d56;
+}
+
+.btn-primary:active, .btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+    background-color: #da2920;
+    background-image: none;
+    border-color: white;
+}
+
