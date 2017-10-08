@@ -18,4 +18,11 @@
 
   </body>
 
+  <footer class="footer">
+      <p class="blockquote-footer">Background Image by nigel from Vancouver, Canada (IMG_0706-2  Uploaded by France3470)
+          [CC BY 2.0 (http://creativecommons.org/licenses/by/2.0)],
+          via Wikimedia Commons
+      </p>
+  </footer>
+
 </html>
