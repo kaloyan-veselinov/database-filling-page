@@ -14,7 +14,7 @@ class Router {
         $this->form_cotroller = new FormController();
         $this->data_receiver_controller = new DataReceiverController();
         $this->home_controller = new HomeController();
-        $this->uri = $_SERVER['PHP_SELF'];
+        $this->uri = $_SERVER['REQUEST_URI'];
     }
 
     public function routeRequest(){
@@ -25,17 +25,17 @@ class Router {
         }
         else{
             $path = explode('/',$this->uri);
-            if(isset($path[2])){
-                if ($path[2] == 'help'){
-                    if(sizeof($path) == 3){
-                        $this->form_cotroller->displayForm();
-                    }
-                }else if($path[2] == "home"){
-                    if(sizeof($path) == 3) {
-                        $this->home_controller->displayHomePage();
-                    }
-                }else if($path[2] == ""){
+            if($path[sizeof($path)-1] == "help"){
+                $this->form_cotroller->displayForm();
+            }else if($path[sizeof($path)-1] == "home"){
+
+                $this->home_controller->displayHomePage();
+
+            }else if($path[sizeof($path)-1] == ""){
+                if($path[sizeof($path)-2] ==$path[0] ){
                     $this->home_controller->displayHomePage();
+                }else{
+                    echo $this->uri;
                 }
             }else {
                 $this->home_controller->displayHomePage();
