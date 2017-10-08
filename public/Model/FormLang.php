@@ -1,4 +1,5 @@
 <?php
+require_once dirname(__FILE__).'/Lang.php';
 switch (LANGCODE){
     case "en" :
         define("USERNAME_TXT","Username");

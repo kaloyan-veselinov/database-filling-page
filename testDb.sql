@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS entries
 
 CREATE TABLE IF NOT EXISTS keyEvents
 (
+    keyEventId INT AUTO_INCREMENT,
     keyId INT,
     entryId INT,
     keyValue VARCHAR(10),
@@ -42,6 +43,7 @@ CREATE TABLE IF NOT EXISTS keyEvents
     shiftKey TINYINT,
     timeDown BIGINT,
     timeUp BIGINT,
+    PRIMARY KEY (keyEventId),
     FOREIGN KEY (entryId) REFERENCES entries (entryId)
 );
 

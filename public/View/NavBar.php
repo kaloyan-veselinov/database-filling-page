@@ -1,5 +1,5 @@
 <?php
-include "navbarLang.php";
+require_once 'Model/NavbarLang.php';
 ?>
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -10,14 +10,14 @@ include "navbarLang.php";
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="#"><?php echo HOME_TXT?> <span class="sr-only">(current)</span></a>
+              <li class="nav-item ">
+                  <a class="nav-link" href="/home" target="_self"><?=HOME_TXT?> <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#"><?php echo HELP_TXT ?> </a>
+                  <a class="nav-link" href="/help"><?=HELP_TXT ?> </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link " href="#"><?php echo CONTACT_TXT ?></a>
+                  <a class="nav-link " href="#"><?=CONTACT_TXT ?></a>
               </li>
           </ul>
           <form class="form-inline">

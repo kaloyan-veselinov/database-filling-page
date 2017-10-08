@@ -111,7 +111,7 @@ $(document).ready(function() {
 
   function submit() {
     console.log(entries);
-    $.post("/src/php/dataReceiver.php", {
+    $.post("/src/php/DataReceiverController.php", {
         data: entries
       },
       function(data, status) {

@@ -1,4 +1,5 @@
 <?php
+require_once 'Lang.php';
 switch (LANGCODE) {
     case "en" :
         define("HOME_TXT", "Home");

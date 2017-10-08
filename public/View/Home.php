@@ -1,7 +1,4 @@
-    <script type="text/javascript" src="src/js/home.js"></script>
-
-<body>
-
+<script type="text/javascript" src="/Javascript/home.js"></script>
 <div id="fullpage">
     <div class="section container" id="main_section">
         <div class="row">
@@ -40,9 +37,3 @@
         </div>
     </div>
 </div>
-
-
-
-</body>
-
-</html>
