@@ -6,9 +6,7 @@ $(document).ready(function() {
   var passwordToEnter = document.getElementById("displayedPassword");
   var passwordCounter = document.getElementById("passwordCounter");
   var nbPasswordEntriesLeft = 5;
-
-  passwordCounter.innerText = nbPasswordEntriesLeft;
-
+  
   setPasswordToEnterLabel();
 
   var keyDownEvents = new Array();

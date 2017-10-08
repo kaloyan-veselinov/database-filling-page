@@ -59,6 +59,7 @@ class EntryModel extends Model{
         $values = $result->fetch_assoc();
         return $values["MAX(entryId)"];
     }
+    
     public function getDisplayedPassword(){
         $query = 'SELECT password FROM passwords';
         $values = $this->executeRequest($query);

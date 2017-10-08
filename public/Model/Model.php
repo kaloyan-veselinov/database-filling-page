@@ -20,13 +20,13 @@ class Model {
             var_dump($params);
             call_user_func_array(array($prepared_statement, 'bind_param'), $params);
             if(!$prepared_statement->execute()){
-                Logger::logError($this->connection->error);
+                die(Logger::logError($this->connection->error));
             }
+            echo $result;
             $result = $prepared_statement->get_result();
         }
         else{
-            Logger::logError($this->connection->error);
-            return -1;
+            die(Logger::logError($this->connection->error));
         }
         return $result;
     }
