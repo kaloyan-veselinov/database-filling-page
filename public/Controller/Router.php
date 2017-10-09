@@ -22,6 +22,9 @@ class Router {
             if($_POST['action']=="submit"){
                 $this->data_receiver_controller->processData();
             }
+        }else if(isset($_POST['email'])){
+            echo "received";
+
         }
         else{
             $path = explode('/',$this->uri);
@@ -30,6 +33,8 @@ class Router {
             }else if($path[sizeof($path)-1] == "home"){
 
                 $this->home_controller->displayHomePage();
+            }else if($path[sizeof($path)-1] == "newsletter"){
+                echo "received";
 
             }else if($path[sizeof($path)-1] == ""){
                 if($path[sizeof($path)-2] ==$path[1] ){
@@ -38,7 +43,8 @@ class Router {
                     echo $this->uri;
                 }
             }else {
-                $this->home_controller->displayHomePage();
+                //$this->home_controller->displayHomePage();
+                echo"received with error";
             }
         }
     }

@@ -1,6 +1,8 @@
 <?php
 require_once 'Model/NavbarLang.php';
 ?>
+
+
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Woodpeckey</a>
@@ -28,7 +30,8 @@ require_once 'Model/NavbarLang.php';
               </button>
 
               <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
                           <div class="modal-header">
@@ -38,22 +41,23 @@ require_once 'Model/NavbarLang.php';
                               </button>
                           </div>
                           <div class="modal-body">
-                              <form class="vertical-align-section img-thumbnail">
+                              <form id="newsletter_form" name="newsletter_form">
                                   <div class="form-group">
                                       <label><?=SUBSCRIBE_EMAIL?></label>
-                                      <input class="form-control" type="email">
+                                      <input id="email" class="form-control" type="email" required>
                                   </div>
                                   <div class="form-group">
                                       <label><?=SUBSCRIBE_LANG?></label>
-                                      <select class="form-control">
+                                      <select id="language" class="form-control">
                                           <option value="english">English</option>
                                           <option value="french">Français</option>
                                       </select>
                                   </div>
+                                  <input type="submit" value="<?=SUBSCRIBE_BTN ?>" class="btn btn-primary">
+
                               </form>
-                          </div>
-                          <div class="modal-footer">
-                              <button type="button" class="btn btn-primary"><?=SUBSCRIBE_BTN?></button>
+                              <script type="text/javascript" src="../Javascript/newsletter.js"></script>
+
                           </div>
                       </div>
                   </div>
@@ -64,3 +68,5 @@ require_once 'Model/NavbarLang.php';
       </div>
   </nav>
 </header>
+
+

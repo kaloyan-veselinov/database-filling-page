@@ -21,8 +21,25 @@ class NewsletterModel
 
     public function addSubscription(string $email, string $language){
         $query = "INSERT INTO newletter_subscription (email,language) VALUES (?,?);";
-        $param_type = "ss";
+        $params_type = "ss";
         $params = array(&$email,&$language);
+        $this->executeRequest($query,$params,$params_type);
     }
 
+    public function executeRequest(string $sql, array $params = null, string $params_type = null){
+        if($params == null && $params_type ==null){
+            $result = $this->getConnection()->query($sql);
+        }
+        elseif($prepared_statement = $this->getConnection()->prepare($sql)){
+            array_unshift($params, $params_type);
+            var_dump($params);
+            call_user_func_array(array($prepared_statement, 'bind_param'), $params);
+            if(!$prepared_statement->execute()){
+                die(Logger::logError($this->connection->error));
+            }
+        }
+        else{
+            die(Logger::logError($this->connection->error));
+        }
+    }
 }
