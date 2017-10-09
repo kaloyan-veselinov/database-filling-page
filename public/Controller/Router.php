@@ -3,6 +3,7 @@
 require_once dirname(__FILE__).'/FormController.php';
 require_once dirname(__FILE__).'/DataReceiverController.php';
 require_once dirname(__FILE__).'/HomeController.php';
+require_once dirname(__FILE__).'/NewsletterController.php';
 
 class Router {
     private $form_cotroller;
@@ -11,20 +12,17 @@ class Router {
     private $uri;
 
     public function __construct(){
-        $this->form_cotroller = new FormController();
+        //$this->form_cotroller = new FormController();
         $this->data_receiver_controller = new DataReceiverController();
         $this->home_controller = new HomeController();
         $this->uri = $_SERVER['REQUEST_URI'];
     }
 
     public function routeRequest(){
-        if(isset($_POST['action'])){
-            if($_POST['action']=="submit"){
+        if(isset($_POST['action'])) {
+            if ($_POST['action'] == "submit") {
                 $this->data_receiver_controller->processData();
             }
-        }else if(isset($_POST['email'])){
-            echo "received";
-
         }
         else{
             $path = explode('/',$this->uri);
@@ -34,7 +32,9 @@ class Router {
 
                 $this->home_controller->displayHomePage();
             }else if($path[sizeof($path)-1] == "newsletter"){
-                echo "received";
+                if(isset($_POST['email']) && isset($_POST['language'])){
+                    addSubscription(htmlspecialchars($_POST['email']),htmlspecialchars($_POST['language']));
+                }
 
             }else if($path[sizeof($path)-1] == ""){
                 if($path[sizeof($path)-2] ==$path[1] ){
@@ -43,8 +43,7 @@ class Router {
                     echo $this->uri;
                 }
             }else {
-                //$this->home_controller->displayHomePage();
-                echo"received with error";
+                $this->home_controller->displayHomePage();
             }
         }
     }

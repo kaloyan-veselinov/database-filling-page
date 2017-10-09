@@ -22,7 +22,7 @@ require_once 'Model/NavbarLang.php';
                   <a class="nav-link " href="#"><?=CONTACT_TXT ?></a>
               </li>
           </ul>
-          <form class="form-inline">
+          <div class="form-inline">
               <li>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -41,30 +41,28 @@ require_once 'Model/NavbarLang.php';
                               </button>
                           </div>
                           <div class="modal-body">
-                              <form id="newsletter_form" name="newsletter_form">
+                              <form id="newsletter_form" name="newsletter_form" action="/newsletter" method="post">
                                   <div class="form-group">
                                       <label><?=SUBSCRIBE_EMAIL?></label>
-                                      <input id="email" class="form-control" type="email" required>
+                                      <input name="email" class="form-control" type="email" required>
                                   </div>
                                   <div class="form-group">
                                       <label><?=SUBSCRIBE_LANG?></label>
-                                      <select id="language" class="form-control">
-                                          <option value="english">English</option>
-                                          <option value="french">Français</option>
+                                      <select name="language" class="form-control">
+                                          <option value="en">English</option>
+                                          <option value="fr">Français</option>
                                       </select>
                                   </div>
                                   <input type="submit" value="<?=SUBSCRIBE_BTN ?>" class="btn btn-primary">
 
                               </form>
-                              <script type="text/javascript" src="../Javascript/newsletter.js"></script>
-
                           </div>
                       </div>
                   </div>
               </div>
               </li>
               </ul>
-          </form>
+          </div>
       </div>
   </nav>
 </header>

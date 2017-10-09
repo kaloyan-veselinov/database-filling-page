@@ -10,6 +10,8 @@ class Model {
     }
     public function __destruct(){
         mysqli_close($this->connection);
+        unset($this->connection);
+
     }
     public function executeRequest(string $sql, array $params = null, string $params_type = null){
         if($params == null && $params_type ==null){
@@ -22,7 +24,6 @@ class Model {
             if(!$prepared_statement->execute()){
                 die(Logger::logError($this->connection->error));
             }
-            echo $result;
             $result = $prepared_statement->get_result();
         }
         else{
