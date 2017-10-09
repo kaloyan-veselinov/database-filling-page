@@ -1,11 +1,18 @@
 <?php
-    require_once dirname('__FILE__').'/Model/NewsletterModel.php';
-    function addSubscription(string $email, string $language){
-        if (is_null($language) || ($language!="en" && $language!="fr")){
-            $language = en;
-        }
-        $model = new NewsletterModel();
-        $model.addSubscription($email,$language);
 
-    }
+
+    require_once dirname('__FILE__').'/Model/NewsletterModel.php';
+    class NewsletterController{
+        private $model;
+        function addSubscription(string $email, string $language){
+            if (is_null($language) || ($language!="en" && $language!="fr")){
+                $language = en;
+            }
+            $this->model = new NewsletterModel();
+            $this->model->addSubscription($email,$language);
+
+
+        }
+}
+
 

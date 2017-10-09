@@ -13,7 +13,7 @@ class NewsletterModel extends Model
         mysqli_close($this->connection);
     }
 */
-    public function addSubscription(string $email, string $language){
+    public function addSubscription($email,$language){
         $query = "INSERT INTO newsletter_subscription (email,language) VALUES (?,?);";
         $params_type = "ss";
         $params = array(&$email,&$language);

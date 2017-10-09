@@ -68,4 +68,14 @@ class EntryModel extends Model{
         $values->data_seek($id);
         return $values->fetch_assoc()["password"];
     }
-}
+
+    public function addSubscription($email,$language){
+        $query = "INSERT INTO newsletter_subscription (email,language) VALUES (?,?);";
+        $params_type = "ss";
+        $params = array(&$email,&$language);
+        $this->executeRequest($query,$params,$params_type);
+    }
+
+
+    }
+

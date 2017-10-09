@@ -23,4 +23,15 @@ class DataReceiverController{
         }
         $this->entry_model->addKeyEventsToEntry($entryId,$downEvents,$upEvents);
     }
+
+    function addSubscription($email, $language){
+        if (!isset($language) || ($language!="en" && $language!="fr")){
+            $language = en;
+        }
+        $this->entry_model = new EntryModel();
+
+        $this->entry_model->addSubscription($email,$language);
+
+
+    }
 }
