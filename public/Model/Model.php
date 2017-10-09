@@ -24,13 +24,12 @@ class Model {
             if(!$prepared_statement->execute()){
                 die(Logger::logError($this->connection->error));
             }
-           // $result = $prepared_statement->get_result();
+            $result = $prepared_statement->get_result();
         }
         else{
             die(Logger::logError($this->connection->error));
         }
-        //return $result;
-        echo "done";
+        return $result;
     }
     private function getConnection(){
         return $this->connection;
