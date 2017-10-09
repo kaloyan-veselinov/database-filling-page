@@ -4,12 +4,14 @@ require_once dirname(__FILE__).'/FormController.php';
 require_once dirname(__FILE__).'/DataReceiverController.php';
 require_once dirname(__FILE__).'/HomeController.php';
 require_once dirname(__FILE__).'/NewsletterController.php';
+require_once dirname(__FILE__).'/ContactController.php';
 
 class Router {
     private $form_cotroller;
     private $data_receiver_controller;
     private $home_controller;
     private $newsletter_controller;
+    private $contact_controller;
     private $uri;
 
     public function __construct(){
@@ -37,6 +39,11 @@ class Router {
                     $this->newsletter_controller = new NewsletterController();
                     $this->newsletter_controller->addSubscription(htmlspecialchars($_POST['email']),htmlspecialchars($_POST['language']));
                 }
+
+            }else if($path[sizeof($path)-1] == "contact"){
+                $this->contact_controller = new ContactController();
+                $this->contact_controller->displayForm();
+
 
             }else if($path[sizeof($path)-1] == ""){
                 if($path[sizeof($path)-2] ==$path[1] ){

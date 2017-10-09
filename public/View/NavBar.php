@@ -19,7 +19,7 @@ require_once 'Model/NavbarLang.php';
                   <a class="nav-link" href="help"><?=HELP_TXT ?> </a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link " href="#"><?=CONTACT_TXT ?></a>
+                  <a class="nav-link " href="contact"><?=CONTACT_TXT ?></a>
               </li>
           </ul>
           <div class="form-inline">
