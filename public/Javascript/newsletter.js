@@ -1,18 +1,19 @@
 $(document).ready(function() {
-    var emailField = document.getElementById("email");
-    var langFiled = document.getElementById("language");
-    var form = document.getElementById("newsletter_form");
 
+    var form = document.getElementById('newsletter_form');
 
-    function subscribe() {
-        console.log(emailField.innerText + " | " + langFiled.innerHTML);
-    }
-
-    function eventSubmit(e) {
+    function submit(e){
         e.preventDefault();
-        subscribe();
+        var email = $("#email").val()
+        var lang = $("#lang").val()
+        $.post("/newsletter", {
+            email: email,
+            language : lang
+        },function () {
+            $("#newsletterModal").modal('hide');
+        });
     }
 
-    form.addEventListener("submit", eventSubmit, false);
+    form.addEventListener("submit", submit, false);
 
 });

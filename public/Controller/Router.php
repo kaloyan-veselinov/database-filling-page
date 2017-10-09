@@ -36,7 +36,6 @@ class Router {
                 if(isset($_POST['email']) && isset($_POST['language'])){
                     $this->newsletter_controller = new NewsletterController();
                     $this->newsletter_controller->addSubscription(htmlspecialchars($_POST['email']),htmlspecialchars($_POST['language']));
-                    $this->redirectPrevPage();
                 }
 
             }else if($path[sizeof($path)-1] == ""){
@@ -51,13 +50,5 @@ class Router {
         }
     }
 
-    private function redirectPrevPage(){
-        if(isset($_SERVER['HTTP_REFERER'])){
-            header('Location',$_SERVER['HTTP_REFERER']);
-            die();
-        }else{
-            header('Location',$_SERVER['HTTP_REFERER']);
 
-        }
-    }
 }

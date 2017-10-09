@@ -23,3 +23,22 @@
 [Mon, 09 Oct 2017 10:25:04 +0000] -  Connection failed: Too many connections 
 [Mon, 09 Oct 2017 10:27:52 +0000] -  Connection failed: Too many connections 
 [Mon, 09 Oct 2017 11:57:28 +0000] -  Duplicate entry 'test2@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 14:21:31 +0000] -  Table 'scotchbox.newsletter_subscription' doesn't exist 
+[Mon, 09 Oct 2017 14:23:51 +0000] -  Table 'scotchbox.newsletter_subscription' doesn't exist 
+[Mon, 09 Oct 2017 14:24:19 +0000] -  Table 'scotchbox.newsletter_subscription' doesn't exist 
+[Mon, 09 Oct 2017 14:28:21 +0000] -  Table 'scotchbox.newsletter_subscription' doesn't exist 
+[Mon, 09 Oct 2017 14:30:41 +0000] -  Table 'scotchbox.newsletter_subscription' doesn't exist 
+[Mon, 09 Oct 2017 14:34:06 +0000] -  Table 'scotchbox.newsletter_subscription' doesn't exist 
+[Mon, 09 Oct 2017 14:40:18 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 15:00:30 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 15:06:27 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 15:10:17 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 15:11:19 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 16:18:21 +0000] -  Duplicate entry 'test6@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 16:20:47 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 16:23:49 +0000] -  Duplicate entry 'test6@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 16:31:54 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 16:38:38 +0000] -  Duplicate entry 'test10@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 16:40:47 +0000] -  Duplicate entry 'test10@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 16:46:09 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
+[Mon, 09 Oct 2017 17:10:17 +0000] -  Duplicate entry 'test44@test.com' for key 'PRIMARY' 

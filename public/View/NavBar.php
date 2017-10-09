@@ -2,7 +2,7 @@
 require_once 'Model/NavbarLang.php';
 ?>
 
-
+<script type="text/javascript" src="../Javascript/newsletter.js"></script>
 <header>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Woodpeckey</a>
@@ -25,13 +25,13 @@ require_once 'Model/NavbarLang.php';
           <div class="form-inline">
               <li>
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newsletterModal">
                   <?=SUBSCRIBE_NEWS?>
               </button>
 
               <!-- Modal -->
 
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="newsletterModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                       <div class="modal-content">
                           <div class="modal-header">
@@ -41,14 +41,14 @@ require_once 'Model/NavbarLang.php';
                               </button>
                           </div>
                           <div class="modal-body">
-                              <form id="newsletter_form" name="newsletter_form" action="/newsletter" method="post">
+                              <form id="newsletter_form" name="newsletter_form">
                                   <div class="form-group">
                                       <label><?=SUBSCRIBE_EMAIL?></label>
-                                      <input name="email" class="form-control" type="email" required>
+                                      <input id="email" name="email" class="form-control" type="email" required>
                                   </div>
                                   <div class="form-group">
                                       <label><?=SUBSCRIBE_LANG?></label>
-                                      <select name="language" class="form-control">
+                                      <select id="lang" name="language" class="form-control">
                                           <option value="en">English</option>
                                           <option value="fr">Français</option>
                                       </select>

@@ -10,9 +10,12 @@
             }
             $this->model = new NewsletterModel();
             $this->model->addSubscription($email,$language);
-
+            $this->redirectPrevPage();
+            echo "test";
 
         }
+
+
 }
 
 
