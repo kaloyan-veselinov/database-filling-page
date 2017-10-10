@@ -4,7 +4,7 @@
 
 <center>
 
-  <div class="vertical-align-section img-thumbnail" id="passwordForm">
+  <div class="vertical-align-section img-thumbnail dark-background" id="passwordForm">
 
     <form id="form">
 
