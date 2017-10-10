@@ -5,6 +5,7 @@ require_once dirname(__FILE__).'/DataReceiverController.php';
 require_once dirname(__FILE__).'/HomeController.php';
 require_once dirname(__FILE__).'/NewsletterController.php';
 require_once dirname(__FILE__).'/ContactController.php';
+require_once dirname(__FILE__).'/../Model/ContactModel.php';
 
 class Router {
     private $form_cotroller;
@@ -41,9 +42,15 @@ class Router {
                 }
 
             }else if($path[sizeof($path)-1] == "contact"){
-                $this->contact_controller = new ContactController();
-                $this->contact_controller->displayForm();
-
+                if(isset($_POST['name']) && isset($_POST['email'])
+                    && isset($_POST['subject']) && isset($_POST['msg'])){
+                    $contact_model = new ContactModel($_POST['name'],
+                        $_POST['email'],$_POST['subject'],$_POST['msg']);
+                    $contact_model->sendEmail();
+                }else {
+                    $this->contact_controller = new ContactController();
+                    $this->contact_controller->displayForm();
+                }
 
             }else if($path[sizeof($path)-1] == ""){
                 if($path[sizeof($path)-2] ==$path[1] ){

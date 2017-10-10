@@ -13,13 +13,18 @@
                     <div>
                     <label><?=CONTACT_NAME?></label>
                     </div>
-                    <input type="text" style="width: 60%" required>
+                    <input type="text" maxlength="200" style="width: 60%" required id="contact_name">
                 </div>
                 <div class="form-group">
                     <div>
                     <label><?=CONTACT_EMAIL?></label>
                     </div>
-                    <input type="email" style="width: 60%" required>
+                    <input type="email" maxlength="500" style="width: 60%" required id="contact_email">
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label><?=CONTACT_SUBJECT?></label>
+                    </div><input type="text" maxlength="200" style="width: 60%" required id="contact_subject">
                 </div>
                 <div class="form-group">
                     <div>

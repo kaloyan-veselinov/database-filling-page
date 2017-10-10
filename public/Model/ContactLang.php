@@ -9,6 +9,7 @@ switch (LANGCODE){
         define("CONTACT_MESSAGE","Message");
         define("CONTACT_SUBMIT","Envoyer");
         define("CONTACT_COUNTER","Caractères restants : ");
+        define("CONTACT_SUBJECT","Sujet : ");
 
         break;
     default :
@@ -19,6 +20,7 @@ switch (LANGCODE){
         define("CONTACT_MESSAGE","Your Message");
         define("CONTACT_SUBMIT","Submit");
         define("CONTACT_COUNTER","Characters left : ");
+        define("CONTACT_SUBJECT","Subject : ");
 
 
         break;
