@@ -27,33 +27,14 @@ class ContactModel
 
     function sendEmail()
     {
-        $mail = new \PHPMailer\PHPMailer\PHPMailer(null);
+        $to      = 'contact@woodpeckey.com';
+        $subject = $this->subject;
+        $message = $this->msg;
+        $headers = "From: $this->email . \r\n" .
+            "Reply-To: $this->email . \r\n" .
+            'X-Mailer: PHP/' . phpversion();
 
-        $mail->isSMTP();                                      // Set mailer to use SMTP
-        $mail->Host = 'auth.smtp.1and1.fr';  // Specify main and backup SMTP servers
-        $mail->SMTPAuth = true;                               // Enable SMTP authentication
-        $mail->Username = 'contact@woodpeckey.com';                 // SMTP username
-        $mail->Password = '6qjB#v&x02SuRPNyLVm';                           // SMTP password
-        $mail->SMTPSecure = 'tls';                            // Enable encryption, 'ssl' also accepted
-
-        $mail->From = $this->email;
-        $mail->FromName = $this->name;
-        $mail->addAddress('contact@woodpeckey.com', $this->name);     // Add a recipient
-        $mail->addReplyTo('contact@woodpeckey.com', $this->name);
-
-
-        $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
-        $mail->isHTML(false);                                  // Set email format to HTML
-
-        $mail->Subject = $this->subject;
-        $mail->Body = $this->msg;
-
-        if (!$mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-            echo 'Message has been sent';
-        }
+        mail($to, $subject, $message, $headers);
 
     }
 }

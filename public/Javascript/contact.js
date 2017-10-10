@@ -8,6 +8,8 @@ $(document).ready(function() {
     msgField.addEventListener("input",updateCharCounter);
 
 
+    charCounter.innerHTML = 2000 - msgField.value.length;
+
 
     function updateCharCounter() {
         charCounter.innerHTML = 2000 - msgField.value.length;
