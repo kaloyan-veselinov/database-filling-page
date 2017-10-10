@@ -1,14 +1,4 @@
 <?php
-require_once dirname(__FILE__).'/../Vendor/php/PHPMailer-6.0.1/src/PHPMailer.php';
-require_once dirname(__FILE__).'/../Vendor/php/PHPMailer-6.0.1/src/Exception.php';
-require_once dirname(__FILE__).'/../Vendor/php/PHPMailer-6.0.1/src/SMTP.php';
-
-/**
- * Created by PhpStorm.
- * User: jules
- * Date: 10/10/17
- * Time: 22:19
- */
 
 class ContactModel
 {
