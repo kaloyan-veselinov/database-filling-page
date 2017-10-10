@@ -8,6 +8,8 @@ switch (LANGCODE){
         define("CONTACT_EMAIL","Email");
         define("CONTACT_MESSAGE","Message");
         define("CONTACT_SUBMIT","Envoyer");
+        define("CONTACT_COUNTER","Caractères restants : ");
+
         break;
     default :
         define("CONTACT_TITLE","Contact us");
@@ -16,6 +18,8 @@ switch (LANGCODE){
         define("CONTACT_EMAIL","Email");
         define("CONTACT_MESSAGE","Your Message");
         define("CONTACT_SUBMIT","Submit");
+        define("CONTACT_COUNTER","Characters left : ");
+
 
         break;
 }

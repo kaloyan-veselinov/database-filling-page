@@ -19,15 +19,15 @@
                     <div>
                     <label><?=CONTACT_EMAIL?></label>
                     </div>
-                    <input type="text" style="width: 60%" required>
+                    <input type="email" style="width: 60%" required>
                 </div>
                 <div class="form-group">
                     <div>
                     <label><?=CONTACT_MESSAGE?></label>
                     </div>
-                    <textarea maxlength="2000" cols="60" rows="8" required></textarea>
+                    <textarea maxlength="2000" cols="60" rows="8" required id="msg_field"></textarea>
                 </div>
-                <div id="char_counter" class="text-right"></div>
+                <div class="text-right"><?=CONTACT_COUNTER?><label id="char_counter">2000</label></div>
                 <div class="form-group">
                     <input type="submit" value="<?=CONTACT_SUBMIT?>">
                 </div>
