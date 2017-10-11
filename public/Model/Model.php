@@ -3,7 +3,7 @@ require_once dirname(__FILE__).'/../Controller/Logger.php';
 class Model {
     private $connection;
     public function __construct(){
-        $this->connection = new mysqli('host', 'username', 'password', 'db');
+        $this->connection = new mysqli('192.168.33.10', 'user', 'password', 'scotchbox');
         if ($this->connection->connect_error) {
             die(Logger::logError("Connection failed: " . $this->connection->connect_error));
         }

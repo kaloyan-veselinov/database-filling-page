@@ -8,8 +8,11 @@ $(document).ready(function() {
   var nbPasswordEntriesLeft = 5;
   
   setPasswordToEnterLabel();
+    $("#success_alert").hide();
 
-  var keyDownEvents = new Array();
+
+
+    var keyDownEvents = new Array();
   var keyUpEvents = new Array();
   var entries = new Array();
 
@@ -116,7 +119,19 @@ $(document).ready(function() {
         action : "submit"
       },
       function(data, status) {
-        alert(" Status: " + status);
+        reset();
+        entries = new Array();
+        $.get('password',function (result) {
+            passwordToEnter.innerText = result;
+        });
+        nbPasswordEntriesLeft = 5;
+        setPasswordToEnterLabel();
+          $("#success_alert").show();
+        setTimeout(function () {
+            $("#success_alert").fadeOut();
+        },3000)
+
+
       }
     );
   }
