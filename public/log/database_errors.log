@@ -43,3 +43,15 @@
 [Mon, 09 Oct 2017 16:46:09 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
 [Mon, 09 Oct 2017 17:10:17 +0000] -  Duplicate entry 'test44@test.com' for key 'PRIMARY' 
 [Wed, 11 Oct 2017 16:28:35 +0000] -  Connection failed: php_network_getaddresses: getaddrinfo failed: No address associated with hostname 
+[Thu, 12 Oct 2017 19:02:30 +0000] -  Table 'scotchbox.tokens' doesn't exist 
+[Thu, 12 Oct 2017 19:02:47 +0000] -  Table 'scotchbox.tokens' doesn't exist 
+[Thu, 12 Oct 2017 19:04:12 +0000] -   
+[Thu, 12 Oct 2017 19:06:59 +0000] -   
+[Thu, 12 Oct 2017 19:10:52 +0000] -   
+[Thu, 12 Oct 2017 19:11:20 +0000] -   
+[Thu, 12 Oct 2017 19:12:18 +0000] -   
+[Thu, 12 Oct 2017 19:16:00 +0000] -   
+[Thu, 12 Oct 2017 19:20:28 +0000] -   
+[Thu, 12 Oct 2017 19:59:53 +0000] -  Duplicate entry 'test42@test.com' for key 'PRIMARY' 
+[Thu, 12 Oct 2017 20:05:24 +0000] -   
+[Thu, 12 Oct 2017 20:07:18 +0000] -   

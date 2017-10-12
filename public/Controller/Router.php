@@ -18,7 +18,9 @@ class Router {
     public function __construct(){
         $this->home_controller = new HomeController();
         $this->uri = $_SERVER['REQUEST_URI'];
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
     }
 
     public function routeRequest(){

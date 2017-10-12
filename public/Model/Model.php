@@ -13,7 +13,8 @@ class Model {
         unset($this->connection);
 
     }
-    public function executeRequest(string $sql, array $params = null, string $params_type = null){
+    public function executeRequest(string $sql, array $params = null,
+                                   string $params_type = null){
         if($params == null && $params_type ==null){
             $result = $this->getConnection()->query($sql);
         }

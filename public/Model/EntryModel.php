@@ -79,20 +79,21 @@ class EntryModel extends Model{
         $this->executeRequest($query,$params,$params_type);
     }
 
-    public function generateToken($password){
+    public function generateToken($password):int{
         $token = rand();
-        $time = time();
+        $time = strval(time());
         $query = "INSERT INTO tokens (token,creationTime,password) VALUES (?,?,?)";
-        $params_type = "iis";
-        $params = array($token,$time,$password);
-        $this->executeRequest($query,$params,$params_type);
+        $params_type = "iss";
+        $params = array(&$token,&$time,&$password);
+        $result = $this->executeRequest($query,$params,$params_type);
+        ob_clean(); // needed it to prevent mysql array to be printed
         return $token;
     }
 
     public function retrieveToken(int $token){
         $query = "SELECT * FROM tokens WHERE token = ?";
-        $params_type = "s";
-        $params = array($token);
+        $params_type = "i";
+        $params = array(&$token);
         $values = $this->executeRequest($query,$params,$params_type);
         return $values->fetch_assoc();
     }
