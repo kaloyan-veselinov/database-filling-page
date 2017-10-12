@@ -8,11 +8,15 @@
             if (is_null($language) || ($language!="en" && $language!="fr")){
                 $language = en;
             }
-            $this->model = new NewsletterModel();
-            $this->model->addSubscription($email,$language);
-            $this->redirectPrevPage();
-            echo "test";
+            if($this->validateInput($email)) {
+                $this->model = new NewsletterModel();
+                $this->model->addSubscription($email, $language);
+            }
 
+        }
+
+        function validateInput(string $email):bool {
+            return filter_var($email,FILTER_VALIDATE_EMAIL);
         }
 
 

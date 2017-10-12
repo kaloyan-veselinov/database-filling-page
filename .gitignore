@@ -6,3 +6,5 @@
 
 # ignore log files :
 public/log/*
+
+*.log

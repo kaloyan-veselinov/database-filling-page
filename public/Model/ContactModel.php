@@ -9,23 +9,29 @@ class ContactModel
 
     function __construct($name, $email, $subject, $msg)
     {
-        $this->name = $name;
+        $this->name = htmlentities($name);
         $this->email = $email;
-        $this->subject = $subject;
-        $this->msg = $msg;
+        $this->subject = htmlentities($subject);
+        $this->msg = htmlentities($msg);
     }
 
     function sendEmail()
     {
-        $to      = 'contact@woodpeckey.com';
-        $subject = $this->subject;
-        $message = $this->msg;
-        $headers = "From: $this->email . \r\n" .
-            "Reply-To: $this->email . \r\n" .
-            'X-Mailer: PHP/' . phpversion();
+        if($this->validateInput($this->email)) {
+            $to = 'contact@woodpeckey.com';
+            $subject = $this->subject;
+            $message = $this->msg;
+            $headers = "From: $this->email . \r\n" .
+                "Reply-To: $this->email . \r\n" .
+                'X-Mailer: PHP/' . phpversion();
 
-        mail($to, $subject, $message, $headers);
+            mail($to, $subject, $message, $headers);
+        }
         $view = new View('ContactSent.php');
         $view->generateView(array());
+    }
+
+    function validateInput($email):bool {
+        return filter_var($email,FILTER_VALIDATE_EMAIL);
     }
 }

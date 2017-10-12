@@ -13,25 +13,33 @@ class DataReceiverController{
         }
     }
     function processEntry($entry){
-        $entryId = $this->entry_model->addEntryToDatabase($entry);
-        $upEvents = $entry['keyUpEvents'];
-        $downEvents = $entry['keyDownEvents'];
-        if(is_int($entryId) && $entryId >=0) {
-            Logger::logEntry($entryId,true);
-        }else{
-            Logger::logEntry($entryId,false);
+        if($this->verifyToken($entry)) {
+            $entryId = $this->entry_model->addEntryToDatabase($entry);
+            $upEvents = $entry['keyUpEvents'];
+            $downEvents = $entry['keyDownEvents'];
+            if (is_int($entryId) && $entryId >= 0) {
+                Logger::logEntry($entryId, true);
+            } else {
+                Logger::logEntry($entryId, false);
+            }
+            $this->entry_model->addKeyEventsToEntry($entryId, $downEvents, $upEvents);
         }
-        $this->entry_model->addKeyEventsToEntry($entryId,$downEvents,$upEvents);
     }
 
-    function addSubscription($email, $language){
-        if (!isset($language) || ($language!="en" && $language!="fr")){
-            $language = en;
+    function verifyToken($entry):bool{
+        $password = $entry['password'];
+        if(!isset($password)){
+            return false;
+        }else{
+            if(isset($_SESSION['password_token'])){
+                $token_vales = $this->entry_model->retrieveToken($_SESSION['password_token']);
+                $time_diff = time()-$token_vales['creationTime'];
+                if($password == $token_vales['password'] && $time_diff>5 && $time_diff<5*3600){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
         }
-        $this->entry_model = new EntryModel();
-
-        $this->entry_model->addSubscription($email,$language);
-
-
     }
 }
