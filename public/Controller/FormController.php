@@ -13,4 +13,8 @@ class FormController {
         $view = new View('Form.php');
         $view->generateView(array('displayedPassword' => $displayedPassword));
     }
+
+    public function getPassword(){
+        echo $this->entry_model->getDisplayedPassword();
+    }
 }

@@ -29,9 +29,12 @@ class Router {
         }
         else{
             $path = explode('/',$this->uri);
-            if($path[sizeof($path)-1] == "help"){
+            if($path[sizeof($path)-1] == "help") {
                 $this->form_cotroller = new FormController();
                 $this->form_cotroller->displayForm();
+            }else if($path[sizeof($path)-1] == "password"){
+                $this->form_cotroller = new FormController();
+                $this->form_cotroller->getPassword();
             }else if($path[sizeof($path)-1] == "home"){
 
                 $this->home_controller->displayHomePage();

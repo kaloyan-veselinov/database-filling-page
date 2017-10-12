@@ -10,6 +10,9 @@ switch (LANGCODE){
         define("CONTACT_SUBMIT","Envoyer");
         define("CONTACT_COUNTER","Caractères restants : ");
         define("CONTACT_SUBJECT","Sujet : ");
+        define("CONTACT_SENT_MAIN","Votre message a été transmis");
+        define("CONTACT_SENT","Nous vous répondrons dès que possible");
+
 
         break;
     default :
@@ -21,6 +24,8 @@ switch (LANGCODE){
         define("CONTACT_SUBMIT","Submit");
         define("CONTACT_COUNTER","Characters left : ");
         define("CONTACT_SUBJECT","Subject : ");
+        define("CONTACT_SENT_MAIN","Your message has been sent");
+        define("CONTACT_SENT","We'll come back to you as soon as possible.");
 
 
         break;

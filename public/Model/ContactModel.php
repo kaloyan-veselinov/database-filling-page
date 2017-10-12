@@ -25,6 +25,7 @@ class ContactModel
             'X-Mailer: PHP/' . phpversion();
 
         mail($to, $subject, $message, $headers);
-
+        $view = new View('ContactSent.php');
+        $view->generateView(array());
     }
 }

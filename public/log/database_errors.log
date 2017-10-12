@@ -42,3 +42,4 @@
 [Mon, 09 Oct 2017 16:40:47 +0000] -  Duplicate entry 'test10@test.com' for key 'PRIMARY' 
 [Mon, 09 Oct 2017 16:46:09 +0000] -  Duplicate entry 'test@test.com' for key 'PRIMARY' 
 [Mon, 09 Oct 2017 17:10:17 +0000] -  Duplicate entry 'test44@test.com' for key 'PRIMARY' 
+[Wed, 11 Oct 2017 16:28:35 +0000] -  Connection failed: php_network_getaddresses: getaddrinfo failed: No address associated with hostname 

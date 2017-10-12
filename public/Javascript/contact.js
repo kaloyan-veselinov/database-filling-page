@@ -17,7 +17,6 @@ $(document).ready(function() {
 
     function submit(e) {
         e.preventDefault();
-        console.log("ok");
         var name = $("#contact_name").val();
         var email = $("#contact_email").val();
         var subject = $("#contact_subject").val();
@@ -27,6 +26,8 @@ $(document).ready(function() {
             email : email,
             subject : subject,
             msg : msg
+        },function (result){
+            document.body.innerHTML = result;
         });
     }
 

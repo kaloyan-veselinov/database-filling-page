@@ -1,7 +1,9 @@
 
 <script type="text/javascript" src="Javascript/main.js"></script>
 
-
+<div class="alert alert-success alert-dismissible fade show" role="alert" id="success_alert">
+    <?=SUCCESS_TXT?>
+</div>
 <center>
 
   <div class="vertical-align-section img-thumbnail dark-background" id="passwordForm">
