@@ -1,5 +1,6 @@
 <?php
-switch (LANGCODE){
+
+switch ($_SESSION['preferred_lang']){
     case "fr" :
         define("CONTACT_TITLE","Contactez nous");
         define("CONTACT_PRE", 'Pour nous contacter, veuillez remplir le formulaire

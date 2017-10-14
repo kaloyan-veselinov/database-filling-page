@@ -5,23 +5,18 @@
 <p align="center">
   <a href="https://github.com/alvarotrigo/fullPage.js"><img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/dev/examples/imgs/en-language.png" /></a><a href="https://github.com/alvarotrigo/fullPage.js/blob/dev/README_SPANISH.md#fullpagejs"><img src="https://raw.githubusercontent.com/alvarotrigo/fullPage.js/dev/examples/imgs/es-language-inactive.png" /></a>
 </p>
-
----
-
 ![fullPage.js version](http://img.shields.io/badge/fullPage.js-v2.9.4-brightgreen.svg)
 [![License](http://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![PayPal Donate](https://img.shields.io/badge/donate-PayPal.me-ff69b4.svg)](https://www.paypal.me/alvarotrigo/9.95)
 &nbsp;&nbsp; **|**&nbsp;&nbsp; *7Kb gziped* &nbsp;&nbsp;**|**&nbsp;&nbsp; *Created by [@imac2](https://twitter.com/imac2)*
 
+A simple and easy to use libary to create fullscreen scrolling websites (also known as single page websites or onepage sites).
+It allows the creation of fullscreen scrolling websites, as well as adding some landscape sliders inside the sections of the site.
+
 - [Live demo](http://alvarotrigo.com/fullPage/)
 - [Wordpress theme](http://alvarotrigo.com/fullPage/utils/wordpress.html)
 - [fullpage.js Extensions](http://alvarotrigo.com/fullPage/extensions/)
 - [Frequently Answered Questions](https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions)
-
----
-
-A simple and easy to use libary to create fullscreen scrolling websites (also known as single page websites or onepage sites).
-It allows the creation of fullscreen scrolling websites, as well as adding some landscape sliders inside the sections of the site.
 
 Invite me to a coffee
 [![Donate](https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=BEK5JQCQMED4J&lc=GB&item_name=fullPage%2ejs&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
@@ -82,7 +77,7 @@ bower install fullpage.js
 npm install fullpage.js
 ```
 
-### Including files:
+###Including files:
 ```html
 <link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
 
@@ -98,11 +93,11 @@ npm install fullpage.js
 <script type="text/javascript" src="jquery.fullPage.js"></script>
 ```
 
-### Optional use of CDN
+###Optional use of CDN
 If you prefer to use a CDN to load the needed files, fullPage.js is in CDNJS:
 https://cdnjs.com/libraries/fullPage.js
 
-### Required HTML structure
+###Required HTML structure
 Start your HTML document with the compulsory [HTML DOCTYPE declaration](http://www.corelangs.com/html/introduction/doctype.html) on the 1st line of your HTML code. You might have troubles with sections heights otherwise. The examples provided use HTML 5 doctype `<!DOCTYPE html>`.
 
 Each section will be defined with an element containing the `section` class.
@@ -133,7 +128,7 @@ In order to create a landscape slider within a section, each slide will be defin
 ````
 You can see a fully working example of the HTML structure in the [`demoPage.html` file](https://github.com/alvarotrigo/fullPage.js/blob/master/examples/demoPage.html).
 
-### Initialization
+###Initialization
 All you need to do is call fullPage.js inside a `$(document).ready` function:
 
 ```javascript
@@ -280,7 +275,7 @@ Fullpage.js adds multiple classes in different elements to keep a record of the 
 - `fp-destroyed` is added to the fullpage.js container when fullPage.js is destroyed.
 - `fp-enabled` is added to the `html` element once the libary is initalized.
 
-### Lazy Loading
+###Lazy Loading
 [Demo](http://codepen.io/alvarotrigo/pen/eNLBXo) fullPage.js provides a way to lazy load images, videos and audio elements so they won't slow down the loading of your site or unnecessarily waste data transfer.
 When using lazy loading, all these elements will only get loaded when entering in the viewport.
 To enable lazy loading all you need to do is change your `src` attribute to `data-src` as shown below:
@@ -295,7 +290,7 @@ To enable lazy loading all you need to do is change your `src` attribute to `dat
 
 If you already use another lazy load solution which uses `data-src` as well, you can disable the fullPage.js lazy loading by setting the option `lazyLoading: false`.
 
-### Auto play/pause embedded media
+###Auto play/pause embedded media
 
 **Note**: the autoplay feature might not work on some mobile devices depending on the OS and browser (i.e. [Safari on iOS](https://webkit.org/blog/6784/new-video-policies-for-ios/) version < 10.0).
 
@@ -317,7 +312,7 @@ Embedded HTML5 `<video>` / `<audio>`  and Youtube iframes are automatically paus
 </audio>
 ```
 
-### Use extensions
+###Use extensions
 fullpage.js [provides a set of extensions](http://alvarotrigo.com/fullPage/extensions/) you can use to enhance its default features. All of them are listed as [fullpage.js options](https://github.com/alvarotrigo/fullPage.js#options).
 
 Extensions requires you to use the minified file [`jquery.fullpage.extensions.min.js`](https://github.com/alvarotrigo/fullPage.js/blob/master/dist/jquery.fullpage.extensions.min.js) that is inside the [`dist` folder](https://github.com/alvarotrigo/fullPage.js/tree/master/dist) instead of the usual fullPage.js file (`jquery.fullpage.js` or `jquery.fullpage.min.js`).
@@ -661,7 +656,7 @@ $.fn.fullpage.responsiveSlides.toSlides();
 ## Callbacks
 [Demo](http://codepen.io/alvarotrigo/pen/XbPNQv) You can see them in action [here](http://alvarotrigo.com/fullPage/examples/callbacks.html).
 
-### afterLoad (`anchorLink`, `index`)
+###afterLoad (`anchorLink`, `index`)
 Callback fired once the sections have been loaded, after the scrolling has ended.
 Parameters:
 
@@ -673,26 +668,26 @@ In case of not having anchorLinks defined in the plugin the `index` parameter wo
 Example:
 
 ```javascript
-$('#fullpage').fullpage({
-	anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+	$('#fullpage').fullpage({
+		anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
 
-	afterLoad: function(anchorLink, index){
-		var loadedSection = $(this);
+		afterLoad: function(anchorLink, index){
+			var loadedSection = $(this);
 
-		//using index
-		if(index == 3){
-			alert("Section 3 ended loading");
+			//using index
+			if(index == 3){
+				alert("Section 3 ended loading");
+			}
+
+			//using anchorLink
+			if(anchorLink == 'secondSlide'){
+				alert("Section 2 ended loading");
+			}
 		}
-
-		//using anchorLink
-		if(anchorLink == 'secondSlide'){
-			alert("Section 2 ended loading");
-		}
-	}
-});
+	});
 ```
 ---
-### onLeave (`index`, `nextIndex`, `direction`)
+###onLeave (`index`, `nextIndex`, `direction`)
 This callback is fired once the user leaves a section, in the transition to the new section.
 Returning `false` will cancel the move before it takes place.
 
@@ -705,66 +700,66 @@ Parameters:
 Example:
 
 ```javascript
-$('#fullpage').fullpage({
-	onLeave: function(index, nextIndex, direction){
-		var leavingSection = $(this);
+	$('#fullpage').fullpage({
+		onLeave: function(index, nextIndex, direction){
+			var leavingSection = $(this);
 
-		//after leaving section 2
-		if(index == 2 && direction =='down'){
-			alert("Going to section 3!");
-		}
+			//after leaving section 2
+			if(index == 2 && direction =='down'){
+				alert("Going to section 3!");
+			}
 
-		else if(index == 2 && direction == 'up'){
-			alert("Going to section 1!");
+			else if(index == 2 && direction == 'up'){
+				alert("Going to section 1!");
+			}
 		}
-	}
-});
+	});
 ```
 
-#### Cancelling the scroll before it takes place
+####Cancelling the scroll before it takes place
 You can cancel the scroll by returning `false` on the `onLeave` callback:
 
 ```javascript
-$('#fullpage').fullpage({
-	onLeave: function(index, nextIndex, direction){
-		//it won't scroll if the destination is the 3rd section
-		if(nextIndex == 3){
-			return false;
+	$('#fullpage').fullpage({
+		onLeave: function(index, nextIndex, direction){
+			//it won't scroll if the destination is the 3rd section
+			if(nextIndex == 3){
+				return false;
+			}
 		}
-	}
-});
+	});
 ```
 
 ---
-### afterRender()
+###afterRender()
 This callback is fired just after the structure of the page is generated. This is the callback you want to use to initialize other plugins or fire any code which requires the document to be ready (as this plugin modifies the DOM to create the resulting structure). See [FAQs](https://github.com/alvarotrigo/fullPage.js/wiki/FAQ---Frequently-Answered-Questions) for more info.
 
 Example:
 
 ```javascript
-$('#fullpage').fullpage({
-	afterRender: function(){
-		var pluginContainer = $(this);
-		alert("The resulting DOM structure is ready");
-	}
-});
+	$('#fullpage').fullpage({
+		afterRender: function(){
+			var pluginContainer = $(this);
+			alert("The resulting DOM structure is ready");
+		}
+	});
 ```
 ---
-### afterResize()
+###afterResize()
 This callback is fired after resizing the browser's window. Just after the sections are resized.
 
 Example:
 
 ```javascript
-$('#fullpage').fullpage({
-	afterResize: function(){
-		var pluginContainer = $(this);
-		alert("The sections have finished resizing");
-	}
-});
+	$('#fullpage').fullpage({
+		afterResize: function(){
+			var pluginContainer = $(this);
+			alert("The sections have finished resizing");
+		}
+	});
 ```
 ---
-### afterResponsive(`isResponsive`)
+###afterResponsive(`isResponsive`)
 This callback is fired after fullpage.js changes from normal to responsive mode or from responsive mode to normal mode.
 
 Parameters:
@@ -774,14 +769,14 @@ Parameters:
 Example:
 
 ```javascript
-$('#fullpage').fullpage({
-	afterResponsive: function(isResponsive){
-		alert("Is responsive: " + isResponsive);
-	}
-});
+	$('#fullpage').fullpage({
+		afterResponsive: function(isResponsive){
+			alert("Is responsive: " + isResponsive);
+		}
+	});
 ```
 ---
-### afterSlideLoad (`anchorLink`, `index`, `slideAnchor`, `slideIndex`)
+###afterSlideLoad (`anchorLink`, `index`, `slideAnchor`, `slideIndex`)
 Callback fired once the slide of a section have been loaded, after the scrolling has ended.
 Parameters:
 
@@ -794,29 +789,29 @@ In case of not having anchorLinks defined for the slide or slides the `slideInde
 Example:
 
 ```javascript
-$('#fullpage').fullpage({
-	anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+	$('#fullpage').fullpage({
+		anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
 
-	afterSlideLoad: function( anchorLink, index, slideAnchor, slideIndex){
-		var loadedSlide = $(this);
+		afterSlideLoad: function( anchorLink, index, slideAnchor, slideIndex){
+			var loadedSlide = $(this);
 
-		//first slide of the second section
-		if(anchorLink == 'secondPage' && slideIndex == 1){
-			alert("First slide loaded");
+			//first slide of the second section
+			if(anchorLink == 'secondPage' && slideIndex == 1){
+				alert("First slide loaded");
+			}
+
+			//second slide of the second section (supposing #secondSlide is the
+			//anchor for the second slide
+			if(index == 2 && slideIndex == 'secondSlide'){
+				alert("Second slide loaded");
+			}
 		}
-
-		//second slide of the second section (supposing #secondSlide is the
-		//anchor for the second slide
-		if(index == 2 && slideIndex == 'secondSlide'){
-			alert("Second slide loaded");
-		}
-	}
-});
+	});
 ```
 
 
 ---
-### onSlideLeave (`anchorLink`, `index`, `slideIndex`, `direction`, `nextSlideIndex`)
+###onSlideLeave (`anchorLink`, `index`, `slideIndex`, `direction`, `nextSlideIndex`)
 This callback is fired once the user leaves an slide to go to another, in the transition to the new slide.
 Returning `false` will cancel the move before it takes place.
 
@@ -832,42 +827,42 @@ Parameters:
 Example:
 
 ```javascript
-$('#fullpage').fullpage({
-	onSlideLeave: function( anchorLink, index, slideIndex, direction, nextSlideIndex){
-		var leavingSlide = $(this);
+	$('#fullpage').fullpage({
+		onSlideLeave: function( anchorLink, index, slideIndex, direction, nextSlideIndex){
+			var leavingSlide = $(this);
 
-		//leaving the first slide of the 2nd Section to the right
-		if(index == 2 && slideIndex == 0 && direction == 'right'){
-			alert("Leaving the fist slide!!");
-		}
+			//leaving the first slide of the 2nd Section to the right
+			if(index == 2 && slideIndex == 0 && direction == 'right'){
+				alert("Leaving the fist slide!!");
+			}
 
-		//leaving the 3rd slide of the 2nd Section to the left
-		if(index == 2 && slideIndex == 2 && direction == 'left'){
-			alert("Going to slide 2! ");
+			//leaving the 3rd slide of the 2nd Section to the left
+			if(index == 2 && slideIndex == 2 && direction == 'left'){
+				alert("Going to slide 2! ");
+			}
 		}
-	}
-});
+	});
 ```
 
-#### Cancelling a move before it takes place
+####Cancelling a move before it takes place
 You can cancel a move by returning `false` on the `onSlideLeave` callback. [Same as when canceling a movement with `onLeave`](https://github.com/alvarotrigo/fullPage.js#cancelling-the-scroll-before-it-takes-place).
 
-# Reporting issues
+#Reporting issues
 1. Please, look for your issue before asking using the github issues search.
 2. Make sure you use the latest fullpage.js version. No support is provided for older versions.
 3. Use the [the Github Issues forum](https://github.com/alvarotrigo/fullPage.js/issues) to create issues.
 4. **An isolated reproduction of the issue will be required.** Make use of [jsfiddle](http://jsfiddle.net/97tbk/418/) or [codepen](http://codepen.io/alvarotrigo/pen/NxyPPp) for it if possible.
 
-# Contributing to fullpage.js
+#Contributing to fullpage.js
 Please see [Contributing to fullpage.js](https://github.com/alvarotrigo/fullPage.js/wiki/Contributing-to-fullpage.js)
 
-# Changelog
+#Changelog
 To see the list of recent changes, see [Releases section](https://github.com/alvarotrigo/fullPage.js/releases).
 
-# Build tasks
+#Build tasks
 Want to build fullpage.js distribution files? Please see [Build Tasks](https://github.com/alvarotrigo/fullPage.js/wiki/Build-tasks)
 
-# Resources
+#Resources
 - [Wordpress theme](http://alvarotrigo.com/fullPage/utils/wordpress.html)
 - [CSS Easing Animation Tool - Matthew Lein](http://matthewlein.com/ceaser/) (useful to define the `easingcss3` value)
 - [fullPage.js jsDelivr CDN](http://www.jsdelivr.com/#!jquery.fullpage)

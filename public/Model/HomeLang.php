@@ -1,6 +1,7 @@
 <?php
 
-switch (LANGCODE){
+
+switch ($_SESSION['preferred_lang']){
         case "fr" :
                 define("MAIN_TITLE","Votre gestionnaire de mot de passe personnel.");
                 define("MAIN_DESCRIPTION","Créez, stockez et partagez vos mots de passe et notes sécrisés.");

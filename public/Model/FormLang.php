@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-switch (LANGCODE){
+switch ($_SESSION['preferred_lang']){
         case "fr" :
                 define("USERNAME_TXT","Nom d'utilisateur");
                 define("Password_TXT","Mot de passe");

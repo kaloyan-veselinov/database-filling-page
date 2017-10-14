@@ -5,6 +5,8 @@ require_once dirname(__FILE__).'/DataReceiverController.php';
 require_once dirname(__FILE__).'/HomeController.php';
 require_once dirname(__FILE__).'/NewsletterController.php';
 require_once dirname(__FILE__).'/ContactController.php';
+require_once dirname(__FILE__).'/LangController.php';
+
 require_once dirname(__FILE__).'/../Model/ContactModel.php';
 
 class Router {
@@ -13,6 +15,7 @@ class Router {
     private $home_controller;
     private $newsletter_controller;
     private $contact_controller;
+    private $langController;
     private $uri;
 
     public function __construct(){
@@ -21,6 +24,8 @@ class Router {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
+        $this->langController = new LangController();
+
     }
 
     public function routeRequest(){
@@ -56,6 +61,10 @@ class Router {
                 }else {
                     $this->contact_controller = new ContactController();
                     $this->contact_controller->displayForm();
+                }
+            }else if($path[1] == "lang"){
+                if(isset($_POST['lang'])){
+                    $this->langController->changeLang($_POST['lang']);
                 }
 
             }else if($path[1] == ""){
