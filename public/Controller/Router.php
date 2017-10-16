@@ -47,8 +47,13 @@ class Router {
 
                 $this->home_controller->displayHomePage();
             }else if($path[1] == "newsletter"){
+                $this->newsletter_controller = new NewsletterController();
+                if (sizeof($path)>2){
+                    if($path[2] == "unsubscribe"){
+                        $this->newsletter_controller->unsubscribe($path[3]);
+                    }
+                }
                 if(isset($_POST['email']) && isset($_POST['language'])){
-                    $this->newsletter_controller = new NewsletterController();
                     $this->newsletter_controller->addSubscription(htmlspecialchars($_POST['email']),htmlspecialchars($_POST['language']));
                 }
 
