@@ -71,6 +71,9 @@ class Router {
                 if(isset($_POST['lang'])){
                     $this->langController->changeLang($_POST['lang']);
                 }
+            }else if($path[1] == "legal"){
+                $view = new View('Legal.php');
+                $view->generateView(array());
 
             }else if($path[1] == ""){
                 if($path[sizeof($path)-2] ==$path[1] ){

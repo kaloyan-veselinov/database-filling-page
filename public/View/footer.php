@@ -21,7 +21,7 @@ require_once dirname(__FILE__).'/../Model/GlobalLang.php';
             <div class="col-sm-4">
                 <ul>
                     <li>
-                        <a class="footer_link" href="#"><?=LEGAL_TEXT?></a>
+                        <a class="footer_link" href="/legal"><?=LEGAL_TEXT?></a>
                     </li>
                     <li>
                         <a class="footer_link" href="#"><?=CREDITS_TXT?></a>

@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once dirname(__FILE__).'/../Controller/LangController.php';
+$langController = new LangController();
 
 switch ($_SESSION['preferred_lang']){
         case "fr" :

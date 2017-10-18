@@ -10,7 +10,6 @@ class LangController
                 $lang = 'en';
             }
             $_SESSION['preferred_lang'] = $lang;
-            echo "lang : $lang";
         }
     }
     function changeLang($lang){
