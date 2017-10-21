@@ -13,14 +13,14 @@ GRANT ALL PRIVILEGES ON scotchbox.* TO 'user'@'%' IDENTIFIED BY 'password';
 
 CREATE TABLE IF NOT EXISTS passwords
 (
-    password VARCHAR(24),
+    password VARCHAR(100),
     PRIMARY KEY (password)
 );
 
 CREATE TABLE IF NOT EXISTS entries
 (
     entryId INT AUTO_INCREMENT,
-    password VARCHAR(24),
+    password VARCHAR(100),
     username VARCHAR(45) NOT NULL,
     date DATE,
     locale VARCHAR(45),
@@ -46,6 +46,14 @@ CREATE TABLE IF NOT EXISTS keyEvents
     PRIMARY KEY (keyEventId),
     FOREIGN KEY (entryId) REFERENCES entries (entryId)
 );
+
+CREATE TABLE IF NOT EXISTS tokens (
+    token INT,
+    creationTime BIGINT,
+    password VARCHAR(100),
+    PRIMARY KEY (token)
+);
+
 
 # Bad Passwords (top 3 000)
 INSERT INTO passwords (password) VALUES ('password');

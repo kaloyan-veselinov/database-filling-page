@@ -43,11 +43,11 @@ require_once 'Model/NavbarLang.php';
                           <div class="modal-body">
                               <form id="newsletter_form" name="newsletter_form">
                                   <div class="form-group">
-                                      <label><?=SUBSCRIBE_EMAIL?></label>
+                                      <label style="color: black"><?=SUBSCRIBE_EMAIL?> </label>
                                       <input id="email" name="email" class="form-control" type="email" required>
                                   </div>
                                   <div class="form-group">
-                                      <label><?=SUBSCRIBE_LANG?></label>
+                                      <label style="color: black"><?=SUBSCRIBE_LANG?> </label>
                                       <select id="lang" name="language" class="form-control">
                                           <option value="en">English</option>
                                           <option value="fr">Français</option>

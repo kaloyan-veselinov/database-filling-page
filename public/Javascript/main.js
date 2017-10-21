@@ -5,6 +5,8 @@ $(document).ready(function() {
   var form = document.getElementById("form");
   var passwordToEnter = document.getElementById("displayedPassword");
   var passwordCounter = document.getElementById("passwordCounter");
+  var formDiv = document.getElementById("form_div");
+  var loarder = document.getElementById("loader");
   var nbPasswordEntriesLeft = 5;
   
   setPasswordToEnterLabel();
@@ -166,4 +168,7 @@ $(document).ready(function() {
       return 'click';
     }
   }
+    loarder.className += " hidden";
+    formDiv.className -= " hidden";
+
 });

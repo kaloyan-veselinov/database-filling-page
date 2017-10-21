@@ -1,4 +1,4 @@
-<script type="text/javascript" src="Javascript/home.js"></script>
+
 
 <div id="fullpage">
 
@@ -14,5 +14,8 @@
             </div>
 
         <?php endforeach; ?>
+    <div class="section fp-auto-height" id="footer">
+        <?php include "footer.php"?>
+    </div>
 
 </div>

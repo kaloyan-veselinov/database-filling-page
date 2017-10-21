@@ -1,7 +1,10 @@
 .vertical-align-section {
-    margin-top: 50vh;
+    margin-top: 47vh;
     transform: translateY(-50%);
     text-align: center;
+    max-height: 70%;
+    margin-right: auto;
+    margin-left:auto;
 }
 
 #passwordForm{
@@ -21,6 +24,9 @@
 .input-validation-default{
 
 }
+html{
+    height: 100%;
+}
 
 body{
   background-image: url("../res/img/background.jpg");
@@ -28,6 +34,8 @@ body{
     background-attachment: fixed;
     background-position: center;
     color: #f1f1f1;
+    height: 90%;
+    padding-bottom: 25px;
 }
 
 label{
@@ -83,9 +91,44 @@ pre{
 #contact_section{
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15%;
     width: 40em;
     padding: 1em 2em 1em 2em;
     text-align: center;
 }
+
+div.hidden
+{
+    display: none
+}
+
+.loader {
+    border: 8px solid rgba(0,0,0,0); /* Light grey */
+    border-top: 8px solid #f3f3f3; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.2s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.footer{
+    min-height: 200px;
+    background-color: rgba(0,0,0,60%);
+    color: white;
+    padding: 25px;
+}
+
+.footer_link{
+    color: white;
+}
+
+.footer_link:hover{
+    color:#e45d56;
+}
+
 

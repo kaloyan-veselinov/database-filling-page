@@ -3,6 +3,8 @@ $(document).ready(function() {
     var form = document.getElementById("contact_form");
     var msgField = document.getElementById("msg_field");
     var charCounter = document.getElementById("char_counter");
+    var formDiv = document.getElementById("form_div");
+    var loarder = document.getElementById("loader");
 
 
     msgField.addEventListener("input",updateCharCounter);
@@ -33,4 +35,6 @@ $(document).ready(function() {
 
 
     form.addEventListener("submit",submit,false);
+    loarder.className += " hidden";
+    formDiv.className -= " hidden";
 });

@@ -1,6 +1,8 @@
 <?php
+require_once dirname(__FILE__).'/../Controller/LangController.php';
+$langController = new LangController();
 
-switch (LANGCODE){
+switch ($_SESSION['preferred_lang']){
         case "fr" :
                 define("USERNAME_TXT","Nom d'utilisateur");
                 define("Password_TXT","Mot de passe");

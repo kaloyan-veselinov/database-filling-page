@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('#fullpage').fullpage({
-        scrollBar: true
+        scrollBar: true,
+        css3: true,
     });
  });

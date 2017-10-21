@@ -66,7 +66,10 @@ class EntryModel extends Model{
         $numRows = $values->num_rows;
         $id = rand(0, $numRows-1);
         $values->data_seek($id);
-        return $values->fetch_assoc()["password"];
+        $displayedPassword = $values->fetch_assoc()["password"];
+        $token = $this->generateToken($displayedPassword);
+        $_SESSION['password_token'] = $token;
+        return $displayedPassword;
     }
 
     public function addSubscription($email,$language){
@@ -74,6 +77,25 @@ class EntryModel extends Model{
         $params_type = "ss";
         $params = array(&$email,&$language);
         $this->executeRequest($query,$params,$params_type);
+    }
+
+    public function generateToken($password):int{
+        $token = rand();
+        $time = strval(time());
+        $query = "INSERT INTO tokens (token,creationTime,password) VALUES (?,?,?)";
+        $params_type = "iss";
+        $params = array(&$token,&$time,&$password);
+        $result = $this->executeRequest($query,$params,$params_type);
+        ob_clean(); // needed it to prevent mysql array to be printed
+        return $token;
+    }
+
+    public function retrieveToken(int $token){
+        $query = "SELECT * FROM tokens WHERE token = ?";
+        $params_type = "i";
+        $params = array(&$token);
+        $values = $this->executeRequest($query,$params,$params_type);
+        return $values->fetch_assoc();
     }
 
 

@@ -1,5 +1,5 @@
 <?php
-switch (LANGCODE) {
+switch ($_SESSION['preferred_lang']) {
         case "fr" :
                 define("HOME_TXT", "Accueil");
                 define("HELP_TXT", "Aidez Nous");

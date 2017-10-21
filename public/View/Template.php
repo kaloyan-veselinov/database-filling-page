@@ -1,7 +1,4 @@
-<?php
-require_once 'Model/GlobalLang.php';
-?>
-
+<?php require_once 'Model/GlobalLang.php'?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,17 +26,21 @@ require_once 'Model/GlobalLang.php';
 
     <link href="Content/main.css" rel="stylesheet" type="text/css" media="all">
 
-    <link rel="stylesheet" type="text/css" href="Vendor/js/fullPage.js-master/jquery.fullPage.css" />
+    <link rel="stylesheet" type="text/css" href="Vendor/js/fullPage.js-2.9.4/jquery.fullPage.css" />
 
 
 
 
     <!-- This following line is only necessary in the case of using the option `scrollOverflow:true` -->
-    <script type="text/javascript" src="Vendor/js/fullPage.js-master/vendors/scrolloverflow.min.js"></script>
+    <script type="text/javascript" src="Vendor/js/fullPage.js-2.9.4/vendors/scrolloverflow.min.js"></script>
 
-    <script type="text/javascript" src="Vendor/js/fullPage.js-master/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="Vendor/js/fullPage.js-2.9.4/jquery.fullPage.js"></script>
 
-    <script type="text/javascript" src="Vendor/js/fullPage.js-master/jquery.fullPage.min.js"></script>
+    <script type="text/javascript" src="Vendor/js/fullPage.js-2.9.4/jquery.fullPage.min.js"></script>
+
+
+
+    <script type="text/javascript" src="Javascript/home.js"></script>
 
 
 
@@ -47,8 +48,8 @@ require_once 'Model/GlobalLang.php';
 </head>
 
 <?php include "NavBar.php"?>
-<body>
 
+<body>
 <?php echo $content ?>
 
 </body>
