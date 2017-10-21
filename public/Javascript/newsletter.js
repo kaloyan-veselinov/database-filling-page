@@ -4,8 +4,8 @@ $(document).ready(function() {
 
     function submit(e){
         e.preventDefault();
-        var email = $("#email").val()
-        var lang = $("#lang").val()
+        var email = $("#email").val();
+        var lang = $("#lang").val();
         $.post("/newsletter", {
             email: email,
             language : lang

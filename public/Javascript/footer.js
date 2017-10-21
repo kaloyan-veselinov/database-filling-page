@@ -4,15 +4,12 @@ $(document).ready(function() {
 
     lang.addEventListener("change",changeLang);
 
-
-
 });
 
 function changeLang(value){
     $.post("/lang", {
         lang : value
-    },function (result){
+    },function (){
         location.reload();
     });
-
 }

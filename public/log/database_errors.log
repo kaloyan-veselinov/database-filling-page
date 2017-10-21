@@ -55,3 +55,9 @@
 [Thu, 12 Oct 2017 19:59:53 +0000] -  Duplicate entry 'test42@test.com' for key 'PRIMARY' 
 [Thu, 12 Oct 2017 20:05:24 +0000] -   
 [Thu, 12 Oct 2017 20:07:18 +0000] -   
+[Sat, 21 Oct 2017 12:30:13 +0000] -  Connection failed: Connection refused 
+[Sat, 21 Oct 2017 12:35:19 +0000] -  Connection failed: Connection refused 
+[Sat, 21 Oct 2017 12:53:07 +0000] -  Connection failed: Connection refused 
+[Sat, 21 Oct 2017 12:57:41 +0000] -  Connection failed: Connection refused 
+[Sat, 21 Oct 2017 13:10:04 +0000] -  Connection failed: Connection refused 
+[Sat, 21 Oct 2017 13:11:53 +0000] -  Connection failed: Connection refused 
