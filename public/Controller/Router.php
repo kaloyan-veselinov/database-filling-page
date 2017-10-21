@@ -74,7 +74,9 @@ class Router {
             }else if($path[1] == "legal"){
                 $view = new View('Legal.php');
                 $view->generateView(array());
-
+            }else if($path[1] == "credits"){
+                $view = new View('Credits.php');
+                $view->generateView(array());
             }else if($path[1] == ""){
                 if($path[sizeof($path)-2] ==$path[1] ){
                     $this->home_controller->displayHomePage();
